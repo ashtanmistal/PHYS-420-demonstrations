@@ -1,0 +1,107 @@
+/*create a styles sheet that conforms to Google's material design*/
+/*https://material.io/guidelines/style/color.html#color-color-palette*/
+
+body {
+  background-color: #ECEFF1;
+  font-family: Roboto, sans-serif;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5em;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+/*create a container for the app*/
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: #ECEFF1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*create a header for the app*/
+.header {
+  width: 100%;
+  height: 10%;
+  background-color: #607D8B;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*create a body for the app*/
+.body {
+  width: 100%;
+  height: 80%;
+  background-color: #ECEFF1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*create a footer for the app*/
+.footer {
+  width: 100%;
+  height: 10%;
+  background-color: #607D8B;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*create a container for the calculator*/
+.calculator {
+  width: 100%;
+  height: 100%;
+  background-color: #ECEFF1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*create a container for the display*/
+.display {
+  width: 100%;
+  height: 20%;
+  background-color: #B0BEC5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*create a container for the buttons*/
+.buttons {
+  width: 100%;
+  height: 80%;
+  background-color: #ECEFF1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
