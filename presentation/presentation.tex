@@ -1,0 +1,65 @@
+% this is a beamer presentation file
+
+\documentclass{beamer}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amscd}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\title{PHYS 420: Ray Tracing Demonstration and Discussion}
+\author{Ashtan Mistal}
+\institute{University of British Columbia}
+\date{\today}
+
+\begin{document}
+
+  \begin{frame}
+    \titlepage
+  \end{frame}
+
+% Introduce the audience to what ray tracing is
+
+  \begin{frame}
+    \frametitle{What is Ray Tracing?}
+    \begin{itemize}
+      \item Ray Tracing is a method used to accurately model the propagation of light through a scene
+%      \item It is used in many applications, such as computer graphics, astronomy, and optics
+      \item Familiar applications of ray tracing include computer graphics, astronomy, and optics
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{What are the advantages of ray tracing over conventional lighting models?}
+    \begin{itemize}
+      \item It can model the effects of light on objects more accurately than conventional lighting models
+      \item It is more computationally intensive than conventional lighting models
+    \end{itemize}
+
+    In this presentation, we'll go over the details on why it models light more accurately, and how it is more computationally intensive.
+
+    We'll also go over the details of how the model works, and how it can be implemented.
+    % image for rasterized vs ray traced
+    % https://appuals.com/ray-tracing-vs-rasterized-rendering-explained/
+    \includegraphics[width=0.5\textwidth]{rasterized_vs_ray_traced.png}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Why is ray tracing more accurate than conventional lighting models?}
+
+    Rasterized lighting is a computer graphics technique that is used to create shadows and other lighting effects in 3D scenes.
+    The technique works by tracing rays of light from a light source through a 3D scene, and then calculating how these rays interact with the geometry and surfaces in the scene.
+    This information is then used to generate a 2D image that shows the shadows and other lighting effects.
+
+
+
+\end{document}
