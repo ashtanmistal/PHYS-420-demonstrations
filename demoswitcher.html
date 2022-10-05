@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Contact Me</title>
+  <meta charset="UTF-8">
+  <title>WebGL Demos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -39,36 +39,21 @@
     </div>
   </header>
   <div class="mdl-layout__drawer">
-  <span class="mdl-layout-title">Ashtan Mistal - Physics 420 Project</span>
-  <nav class="mdl-navigation">
-    <a class="mdl-navigation__link" href="index.html">Presentation Details</a>
-    <a class="mdl-navigation__link" href="index.html">How-To Guide</a>
-    <!--      <a class="mdl-navigation__link" href="about.html">About</a>-->
-    <a class="mdl-navigation__link" href="contact.html">Contact</a>
-  </nav>
-</div>
+    <span class="mdl-layout-title">Ashtan Mistal - Physics 420 Project</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="index.html">Presentation Details</a>
+      <a class="mdl-navigation__link" href="index.html">How-To Guide</a>
+      <!--      <a class="mdl-navigation__link" href="about.html">About</a>-->
+      <a class="mdl-navigation__link" href="contact.html">Contact</a>
+    </nav>
+  </div>
   <main class="mdl-layout__content">
-    <h1>Contact Me</h1>
-    <form method="post" action="contact.php">
-      <p>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
-      </p>
-      <p>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email">
-      </p>
-      <p>
-        <label for="subject">Subject:</label>
-        <input type="text" id="subject" name="subject">
-      </p>
-      <p>
-        <label for="message">Message:</label>
-        <textarea id="message" name="message"></textarea>
-      </p>
-      <input type="submit" value="don't click (broken)">
-    </form>
+    <div class="page-content">
+      <h2>WebGL Demos</h2>
+<!--      create three buttons for the three demos-->
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="window.location.href='rtdemo/Demo.html'">Ray Traced Demonstration</button>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="window.location.href='Demo/Demo2.html'">Demo 2</button>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="window.location.href='Demo/Demo3.html'">Demo 3</button>
+    </div>
   </main>
 </div>
-</body>
-</html>
