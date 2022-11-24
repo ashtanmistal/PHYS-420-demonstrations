@@ -1,4 +1,4 @@
-<html>
+<script src="gl_utils.js"></script>
 
 <head>
   <meta charset="UTF-8">
@@ -14,16 +14,294 @@
   </style>
 </head>
 
-<body>
-  <canvas id="webglcanvas"></canvas>
-  <script src="js/WebGL.js"></script>
-  <script src="js/three.min.js"></script>
-  <script src="js/OBJLoader.js"></script>
-  <script src="js/SourceLoader.js"></script>
-  <script src="js/OrbitControls.js"></script>
-  <script src="js/KeyboardState.js"></script> <!-- By Jerome Etienne: http://jetienne.com/ -->
-  <script src="js/setup.js"></script>
-  <script src="main.js"></script>
+<body bgcolor=black>
+<canvas id='canvas1' width='800' height='800'>
+</canvas>
 </body>
 
-</html>
+<script id="vs" type="x-shader/x-vertex">
+  attribute vec3 aPosition;
+  varying   vec3 vPosition;
+  void main() {
+    gl_Position = vec4(aPosition, 1.0);
+    vPosition = aPosition;
+  }
+</script>
+
+<script id="fs" type="x-shader/x-fragment">
+  #define NUM_CUBES 19
+  #define INFINITY 100000.0
+  #define CUBESIZE 0.036
+  #define CUBEOFFSET 1.8
+  #define SCALE 0.01
+  precision mediump float;
+  uniform float uTime;
+  varying vec3 vPosition;
+  uniform vec3 uCursor;
+
+  struct Cube {
+    vec3 position;
+    vec3 color;
+    float size;
+    float rotation;
+  };
+
+  struct Ray {
+    vec3 origin;
+    vec3 direction;
+  };
+
+  struct Light {
+    vec3 position;
+    float ambience;
+    vec3 specular;
+    vec3 diffuse;
+  };
+
+  struct RayTracerOutput {
+    Ray reflectedRay;
+    vec3 color;
+  };
+
+  Cube cubes[NUM_CUBES];
+  Ray rays[1];
+  Light light[1];
+
+  float epsilon = 0.001;
+
+  void initialize() {
+    float x = vPosition.x;
+    float y = vPosition.y;
+    float z = vPosition.z;
+    float focalLength = 2.0;
+    vec3 color = vec3(0.0, 0.0, 0.0);
+
+    // Create cubes
+      cubes[0].size = CUBESIZE;
+      cubes[0].color = vec3(1.0, 0.0, 0.0); // 1,0,0 for felt material
+      cubes[0].rotation = 0.0;
+
+        cubes[1].position = SCALE*vec3(10.0 + CUBEOFFSET, CUBESIZE + CUBEOFFSET, 10.0 - CUBEOFFSET);
+        cubes[1].size = CUBESIZE;
+        cubes[1].color = vec3(1.0, 0.0, 0.0); // 1,0,0 for felt material
+        cubes[1].rotation = 0.0;
+
+      cubes[2].position = SCALE*vec3(10.0 - CUBEOFFSET, CUBEOFFSET, 10.0 + CUBEOFFSET);
+      cubes[2].size = CUBESIZE;
+      cubes[2].color = vec3(0.0, 0.0, 1.0); // 0,0,1 for wood material
+      cubes[2].rotation = 0.0;
+
+      cubes[3].position = SCALE*vec3(10.0 - CUBEOFFSET, CUBEOFFSET, 20.0 - CUBEOFFSET);
+      cubes[3].size = CUBESIZE;
+      cubes[3].color = vec3(0.0, 0.0, 1.0); // 0,0,1 for wood material
+      cubes[3].rotation = 0.0;
+
+      cubes[4].position = SCALE*vec3(10.0 - CUBEOFFSET, CUBEOFFSET, 20.0 + CUBEOFFSET);
+      cubes[4].size = CUBESIZE;
+      cubes[4].color = vec3(0.0, 0.0, 1.0); // 0,0,1 for wood material
+      cubes[4].rotation = 0.0;
+
+      cubes[5].position = SCALE*vec3(30.0 - sqrt(CUBEOFFSET*CUBEOFFSET*2.0), CUBEOFFSET, 10.0 + sqrt((CUBESIZE*CUBESIZE*5.0)/ 4.0));
+      cubes[5].size = CUBESIZE;
+      cubes[5].color = vec3(0.0, 1.0, 0.0); // 0,1,0 for metal material
+      cubes[5].rotation = 45.0;
+
+      cubes[6].position = SCALE*vec3(20.0 + CUBEOFFSET, CUBEOFFSET, 20.0 - CUBEOFFSET);
+      cubes[6].size = CUBESIZE;
+      cubes[6].color = vec3(1.0, 0.0, 0.0); // 1,0,0 for felt material
+      cubes[6].rotation = 0.0;
+
+      cubes[7].position = SCALE*vec3(20.0 + CUBEOFFSET, CUBESIZE + CUBEOFFSET, 20.0 - CUBEOFFSET);
+      cubes[7].size = CUBESIZE;
+      cubes[7].color = vec3(1.0, 0.0, 0.0); // 1,0,0 for felt material
+      cubes[7].rotation = 0.0;
+
+      cubes[8].position = SCALE*vec3(20.0 - CUBEOFFSET, CUBEOFFSET, 30.0 - CUBEOFFSET);
+      cubes[8].size = CUBESIZE;
+      cubes[8].color = vec3(0.0, 1.0, 0.0); // 0,1,0 for metal material
+      cubes[8].rotation = 0.0;
+
+      cubes[9].position = SCALE*vec3(30.0 + CUBEOFFSET, CUBEOFFSET + CUBESIZE, 10.0 - CUBEOFFSET);
+      cubes[9].size = CUBESIZE;
+      cubes[9].color = vec3(1.0, 0.0, 0.0); // 1,0,0 for felt material
+      cubes[9].rotation = 0.0;
+
+      cubes[10].position = SCALE*vec3(30.0 + CUBEOFFSET, CUBEOFFSET, 10.0 - CUBEOFFSET);
+      cubes[10].size = CUBESIZE;
+      cubes[10].color = vec3(0.0, 0.0, 1.0); // 0,0,1 for wood material
+      cubes[10].rotation = 0.0;
+
+      cubes[11].position = SCALE*vec3(40.0 - sqrt(CUBEOFFSET*CUBEOFFSET*2.0), CUBEOFFSET, 10.0 - sqrt((CUBESIZE*CUBESIZE*5.0)/ 4.0));
+      cubes[11].size = CUBESIZE;
+      cubes[11].color = vec3(0.0, 1.0, 0.0); // 0,1,0 for metal material
+      cubes[11].rotation = 45.0;
+
+      cubes[12].position = SCALE*vec3(40.0 + sqrt(CUBEOFFSET*CUBEOFFSET*2.0), CUBEOFFSET, 10.0 - sqrt((CUBESIZE*CUBESIZE*5.0)/ 4.0));
+      cubes[12].size = CUBESIZE;
+      cubes[12].color = vec3(0.0, 1.0, 0.0); // 0,1,0 for metal material
+      cubes[12].rotation = 45.0;
+
+      cubes[13].position = SCALE*vec3(40.0 + CUBEOFFSET, CUBEOFFSET, 20.0 + CUBEOFFSET);
+      cubes[13].size = CUBESIZE;
+      cubes[13].color = vec3(0.0, 0.0, 1.0); // 0,0,1 for wood material
+      cubes[13].rotation = 0.0;
+
+      cubes[14].position = SCALE*vec3(40.0 - CUBEOFFSET, CUBESIZE + CUBEOFFSET, 30.0 - CUBEOFFSET);
+      cubes[14].size = CUBESIZE;
+      cubes[14].color = vec3(0.0, 0.0, 1.0); // 0,0,1 for wood material
+      cubes[14].rotation = 0.0;
+
+      cubes[15].position = SCALE*vec3(40.0 - CUBEOFFSET, CUBEOFFSET, 30.0 - CUBEOFFSET);
+      cubes[15].size = CUBESIZE;
+      cubes[15].color = vec3(1.0, 0.0, 0.0); // 1,0,0 for felt material
+      cubes[15].rotation = 0.0;
+
+      cubes[16].position = SCALE*vec3(50.0 + CUBEOFFSET, CUBEOFFSET, 10.0 - CUBEOFFSET);
+      cubes[16].size = CUBESIZE;
+      cubes[16].color = vec3(0.0, 1.0, 0.0); // 0,1,0 for metal material
+      cubes[16].rotation = 0.0;
+
+      cubes[17].position = SCALE*vec3(50.0 + CUBEOFFSET, CUBEOFFSET, 20.0 - CUBEOFFSET);
+      cubes[17].size = CUBESIZE;
+      cubes[17].color = vec3(0.0, 1.0, 0.0); // 0,1,0 for metal material
+      cubes[17].rotation = 0.0;
+
+      cubes[19].position = SCALE*vec3(60.0 + CUBEOFFSET, CUBEOFFSET, -10.0 - CUBEOFFSET);
+      cubes[19].size = CUBESIZE;
+      cubes[19].color = vec3(0.0, 0.0, 1.0); // 0,0,1 for wood material
+      cubes[19].rotation = 0.0;
+
+    // Create ray
+    rays[0].origin = vec3(0.0, 0.0, 4.0);
+    rays[0].direction = normalize(vec3(x-0.5, 0.5-y, -focalLength));
+
+    // Create Light source
+    light[0].position = SCALE*vec3(uCursor.x, -uCursor.y, 1.0);
+    light[0].ambience = 0.1;
+  }
+
+  float getIntersection(Cube cube, Ray ray) {
+    vec3 cubePos = cube.position;
+    vec3 colorOfCube = cube.color;
+    float cubeSize = cube.size;
+    vec3 cameraSource = ray.origin;
+    vec3 cameraDirection = ray.direction;
+
+    vec3 distanceFromCenter = (cameraSource - cubePos);
+    float B = 2.0 * dot(cameraDirection, distanceFromCenter);
+    float C = dot(distanceFromCenter, distanceFromCenter) - pow(cubeSize, 2.0);
+    float delta = pow(B, 2.0) - 4.0 * C;
+    float t = 0.0;
+    if (delta > 0.0) {
+      float sqRoot = sqrt(delta);
+      float t1 = (-B + sqRoot) / 2.0;
+      float t2 = (-B - sqRoot) / 2.0;
+      t = min(t1, t2);
+    }
+    if (delta == 0.0) {
+      t = -B / 2.0;
+    }
+    return t;
+  }
+
+  RayTracerOutput trace(Cube cubes[NUM_CUBES], Ray ray, Light light) {
+    RayTracerOutput rayTracer;
+    Ray reflectionRay;
+    Cube cubeToShow;
+    float minT = INFINITY;
+    vec3 cameraSource = ray.origin;
+    vec3 cameraDirection = ray.direction;
+    vec3 lightSource = light.position;
+    float ambience = light.ambience;
+    vec3 color = vec3(0.0, 0.0, 0.0);
+
+    // Loop through all the cubes, find the one that we intersect with
+    // and is closest to the camera
+    for (int i = 0; i < NUM_CUBES; i++) {
+      // Check if the ray intersects with this cube
+      float t = getIntersection(cubes[i], ray);
+
+      // If so, and it is closer than any other cube we have found so far
+      if (t > 0.0 && t < minT) {
+        // Save this cube as the closest one
+        minT = t;
+        cubeToShow = cubes[i];
+      }
+    }
+
+    if (minT != INFINITY) {
+      // This function calculates the closest intersection of the camera ray with any of the scene's cubes.
+    RayTracerOutput trace(Cube[] cubes, Ray cameraRay, vec3 lightSource) {
+      // This variable stores the intersection information of the closest cube that the camera ray intersects with.
+      RayTracerOutput rayTracer;
+      float minT = 999999.0;
+      Cube cubeToShow;
+      vec3 color = vec3(0.0, 0.0, 0.0);
+
+      // This code loops through all of the cubes in the scene.
+      for (int i = 0; i < cubes.length(); i++) {
+        Cube cube = cubes[i];
+        // This code calculates the intersection of the camera ray with the current cube.
+        float t = cubeIntersection(cameraRay, cube);
+        // This code checks if the camera ray intersects with the current cube.
+        if (t > 0.0) {
+          // This code checks if the current intersection is closer than the previous closest intersection.
+          if (t < minT) {
+            // This code stores the closest intersection information.
+            minT = t;
+            cubeToShow = cube;
+          }
+        }
+      }
+
+      // This code checks if the camera ray intersects with any of the cubes in the scene.
+      if (minT < 999999.0) {
+        // This code calculates the intersection point of the camera ray with the closest cube.
+        vec3 intersectionPoint = cameraRay.origin + minT * cameraRay.direction;
+        // This code calculates the normal of the closest cube at the intersection point.
+        vec3 normal = normalize(intersectionPoint - cubeToShow.position);
+        // This code calculates the light direction.
+        vec3 lightDirection = normalize(lightSource - intersectionPoint);
+        // This code calculates the diffuse lighting.
+        float diffuse = max(dot(lightDirection, normal), 0.0);
+        // This code calculates the specular lighting.
+        float specular = 0.0;
+        if (diffuse > 0.0) {
+          // This code calculates the view direction.
+          vec3 viewDirection = normalize(cameraSource - intersectionPoint);
+          // This code calculates the halfway direction.
+          vec3 halfwayDirection = normalize(lightDirection + viewDirection);
+          specular = pow(max(dot(normal, halfwayDirection), 0.0), 32.0);
+        }
+        // This code calculates the color of the closest cube.
+        color = cubeToShow.color * (ambience + diffuse + specular);
+        // This code calculates the reflection ray.
+        Ray reflectionRay;
+        reflectionRay.origin = intersectionPoint;
+        reflectionRay.direction = normalize(cameraRay.direction - 2.0 * dot(cameraRay.direction, normal) * normal);
+        // This code calculates the color of the reflection ray.
+        RayTracerOutput reflection = trace(cubes, reflectionRay, light);
+        // This code adds the reflection color to the closest cube's color.
+        color = color + reflection.color * 0.5;
+      }
+
+      // This code stores the closest cube's color and information.
+      rayTracer.color = color;
+      rayTracer.cube = cubeToShow;
+      return rayTracer;
+    }
+
+  }
+
+  void main() {
+    initialize();
+    RayTracerOutput rayTracer = trace(cubes, rays[0], light[0]);
+    // Second call to get reflections
+    RayTracerOutput reflection = trace(cubes, rayTracer.reflectedRay, light[0]);
+    gl_FragColor = vec4(rayTracer.color + reflection.color, 1.0);
+  }
+</script>
+
+<script>
+  start_gl("canvas1", getStringFromDOMElement('vs'), getStringFromDOMElement('fs'));
+</script>

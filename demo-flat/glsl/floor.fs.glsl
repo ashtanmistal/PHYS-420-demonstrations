@@ -52,7 +52,7 @@ void main() {
 
   vec3 out_Color = out_Ambient + out_Specular + out_Diffuse;
 
-  gl_FragColor = vec4(clamp(out_Color, 0.0, 1.0), 1.0);
-  // maybe try texture(colorMap, texCoord)*out_Color;
+//  gl_FragColor = vec4(clamp(out_Color, 0.0, 1.0), 1.0);
+  gl_FragColor = texture(colorMap, texCoord)*vec4(clamp(out_Color, 0.0, 1.0), 1.0);
   // I want to get the initial color in there too
 }

@@ -29,13 +29,9 @@ vec3 calculateDiffuse(vec3 normal, vec3 lightDirection){
 
 
 vec3 calculateSpecular(vec3 normal, vec3 lightDirection){
-    // HINT: Make sure to use the Jim Blinn's modification to the Phong Model (Blinn-Phong reflectance)
-    // See textbook, Section 14.3
-
-    vec3 toV = -normalize(vec3(viewPosition));
-    vec3 h = normalize(toV - lightDirection); // halfway vector
-
-    return kSpecular*pow(max(0.0, dot(h, normalize(mat3(modelMatrix)*normal))), shininess)*specularColor;
+  vec3 viewDirection = normalize(viewPosition - worldPosition);
+  vec3 halfwayDirection = normalize(lightDirection + viewDirection);
+  return specularColor*pow(max(0.0, dot(normal, halfwayDirection)), shininess)*kSpecular;
 }
 
 void main() {

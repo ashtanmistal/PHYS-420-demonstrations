@@ -2,7 +2,28 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>PHYS 420 Shading Demonstration</title>
+  <title>Phong Shading Demonstration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
   <style>
     body {
       /* Remove the default padding and margin around the canvas */
@@ -15,6 +36,10 @@
 </head>
 
 <body>
+<!-- make a back button, still using Google Material Design. Overlay this button in the top left corner of the canvas. -->
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="position: absolute; top: 5px; left: 5px; z-index: 1;" onclick="window.history.back();">
+    <i class="material-icons">arrow_back</i>
+  </button>
   <canvas id="webglcanvas"></canvas>
   <script src="js/WebGL.js"></script>
   <script src="js/three.min.js"></script>

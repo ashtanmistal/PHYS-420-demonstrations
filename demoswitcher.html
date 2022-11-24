@@ -19,7 +19,6 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
-
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 
@@ -41,19 +40,77 @@
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Ashtan Mistal - Physics 420 Project</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="index.html">Presentation Details</a>
-      <a class="mdl-navigation__link" href="index.html">How-To Guide</a>
-      <!--      <a class="mdl-navigation__link" href="about.html">About</a>-->
-      <a class="mdl-navigation__link" href="contact.html">Contact</a>
+      <a class="mdl-navigation__link" href="index.html">Home</a>
+      <a class="mdl-navigation__link" href="slides.html">Presentation Slides</a>
+      <a class="mdl-navigation__link" href="howto.html">How-To Guide</a>
+      <a class="mdl-navigation__link" href="demoswitcher.html">WebGL Demonstrations</a>
+      <a class="mdl-navigation__link" href="about.html">About Me</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
+    <!--    I don't want the content to extend all the way to the edge of the screen-->
     <div class="page-content">
-      <h2>WebGL Demos</h2>
-<!--      create three buttons for the three demos-->
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="window.location.href='demo-flat/main.html'">Flat Shading</button>
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="window.location.href='demo-phong/main.html'">Phong Shading</button>
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="window.location.href='demo-raytraced/main.html'">Ray Tracing</button>
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+          <!-- How to Use Demos -->
+          <h3>How to Use Demos: Keyboard and Mouse</h3>
+          <p> To move around the scene for each demo, use the left mouse key to rotate the camera and the right mouse key to pan the camera. To zoom in and out, use the scroll wheel.
+
+            You can move the light source in the Phong Shading demo using WASD on the keyboard, and Q to move up and E to move down. </p>
+
+          <h3> How to Use Demos: Touchscreen</h3>
+          <p> To move around the scene for each demo, use one finger to rotate the camera and two fingers to pan the camera. To zoom in and out, use two fingers to pinch. </p>
+          <p> The light cannot be moved in the Phong Shading demo on a touchscreen. </p>
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--6-col" style="atsc-dynamic-refresh: 1">
+              <div class="mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Scene Geometry</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <p> This demo shows a scene with no lighting. The objects are rendered with flat shading, which means that the color of each face is the same as the color of the vertex at the center of the face. </p>
+                </div>
+                <button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" onclick="window.location.href='demo-flat/main.html'">Scene Geometry</button>
+              </div>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col" style="atsc-dynamic-refresh: 1">
+              <div class="mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text"> Phong Shading</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <p> This demo shows our scene lit with a point light source using the Phong shading model. </p>
+                </div>
+                <button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" onclick="window.location.href='demo-phong/main.html'">Phong Shading</button>
+              </div>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col" style="atsc-dynamic-refresh: 1">
+              <div class="mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Ray Tracing on a Sphere</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <p> This demo shows a scene with a single sphere. The sphere is rendered with ray tracing, which means that the color of each pixel is calculated by tracing a ray from the camera through the pixel and finding the color of the object that the ray hits. </p>
+                  <p> To move the light source, use your mouse or your finger to drag the light source around the scene. </p>
+                </div>
+                <button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" onclick="window.location.href='demo-raytraced/main.html'">Ray Tracing - Sphere</button>
+              </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--6-col" style="atsc-dynamic-refresh: 1">
+              <div class="mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Ray Tracing on the Scene</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <p> This demo shows the scene being fully lit with ray tracing. Note that it is pre-rendered, so the light cannot be moved. </p>
+                </div>
+                <button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" onclick="window.location.href='demo-raytraced-scene/main.html'">Ray Tracing - Scene</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 </div>
