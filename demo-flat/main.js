@@ -1,6 +1,5 @@
 const { renderer, canvas } = setup();
 
-
 // Load floor textures
 const floorColorTexture = new THREE.TextureLoader().load('texture/felt.jpg');
 floorColorTexture.minFilter = THREE.LinearFilter;
@@ -22,17 +21,13 @@ const metalColorTexture = new THREE.TextureLoader().load('texture/metal.jpg');
 metalColorTexture.minFilter = THREE.LinearFilter;
 metalColorTexture.anisotropy = renderer.capabilities.getMaxAnisotropy();
 
-
-
-// Uniforms - Pass these into the appropriate vertex and fragment shader files
 const spherePosition = { type: 'v3', value: new THREE.Vector3(77.0,10.0,39.0/2.0) };
-const tangentDirection = { type: 'v3', value: new THREE.Vector3(0.5, 0.0, 1.0) };
-
+new THREE.Vector3(0.5, 0.0, 1.0);
 const ambientColor = { type: 'c', value: new THREE.Color(1.0,1.0,1.0) };
 const diffuseColor = { type: 'c', value: new THREE.Color(1.0, 1.0, 1.0) };
 const specularColor = { type: 'c', value: new THREE.Color(1.0, 1.0, 1.0) };
 const lightColor = { type: 'c', value: new THREE.Color(244.0/255.0,212.0/255.0,171.0/255.0) };
-//
+
 const kAmbient = { type: "f", value: 0.4 };
 const kDiffuse = { type: "f", value: 0.6 };
 const kSpecular = { type: "f", value: 0.6 };
@@ -92,23 +87,7 @@ const floorMaterial = new THREE.ShaderMaterial( {
     shininess: shininess
   }
 } );
-
-const anisotropicMaterial = new THREE.ShaderMaterial({
-  uniforms: {
-    spherePosition: spherePosition,
-    ambientColor: ambientColor,
-    diffuseColor: diffuseColor,
-    specularColor: specularColor,
-    kAmbient: kAmbient,
-    kDiffuse: kDiffuse,
-    kSpecular: kSpecular,
-    shininess: shininess,
-    lightColor: lightColor,
-    tangentDirection: tangentDirection
-  }
-});
-
-const phongMaterial = new THREE.ShaderMaterial({
+new THREE.ShaderMaterial({
   uniforms: {
     spherePosition: spherePosition,
     ambientColor: ambientColor,
@@ -120,7 +99,6 @@ const phongMaterial = new THREE.ShaderMaterial({
     shininess: shininess
   }
 });
-
 
 const woodMaterial = new THREE.ShaderMaterial({
   side: THREE.DoubleSide,
@@ -174,16 +152,12 @@ const skyboxTexture = skyboxCubemap.load([
   'normal.png', 'normal.png'
 ]);
 skyboxCubemap.format = THREE.RGBFormat;
-const skyboxCubeMapUniform = {type: 't', value: skyboxTexture};
-
 // Load shaders
 const shaderFiles = [
   'glsl/sphere.vs.glsl',
   'glsl/sphere.fs.glsl',
   'glsl/floor.vs.glsl',
   'glsl/floor.fs.glsl',
-  'glsl/phong.vs.glsl',
-  'glsl/phong.fs.glsl',
   'glsl/wood.vs.glsl',
   'glsl/wood.fs.glsl',
   'glsl/metal.vs.glsl',
@@ -195,9 +169,6 @@ const shaderFiles = [
 new THREE.SourceLoader().load(shaderFiles, function (shaders) {
   sphereMaterial.vertexShader = shaders['glsl/sphere.vs.glsl'];
   sphereMaterial.fragmentShader = shaders['glsl/sphere.fs.glsl'];
-
-  phongMaterial.vertexShader = shaders['glsl/phong.vs.glsl'];
-  phongMaterial.fragmentShader = shaders['glsl/phong.fs.glsl'];
 
   floorMaterial.vertexShader = shaders['glsl/floor.vs.glsl'];
   floorMaterial.fragmentShader = shaders['glsl/floor.fs.glsl'];
@@ -212,16 +183,7 @@ new THREE.SourceLoader().load(shaderFiles, function (shaders) {
   feltMaterial.fragmentShader = shaders['glsl/felt.fs.glsl'];
 });
 
-// Define the shader modes
-const shaders = {
-  PHONG: { key: 0, material: phongMaterial }
-};
-
-let mode = shaders.PHONG.key; // Default; this is where we'll override
-
-// Set up scenes
-let scenes = [];
-
+// Create scene
 function addCubes(cubeGeometry, worldFrame, scene) {
   const cube1 = new THREE.Mesh(cubeGeometry, feltMaterial);
   cube1.position.set(77.0 - (10.0 + cubeOffset), cubeOffset, 39.0 - (10.0 - cubeOffset));
@@ -346,35 +308,28 @@ function addCubes(cubeGeometry, worldFrame, scene) {
   // cube18: 77.0 - (50.0 + cubeOffset), cubeOffset, 39.0 - (20.0 - cubeOffset)
   // cube19: 77.0 - (60.0 + cubeOffset), cubeOffset, 39.0 - (10.0 - cubeOffset)
 }
+const { scene, camera, worldFrame } = createScene(canvas);
+scene.background = skyboxTexture;
 
-for (let shader of Object.values(shaders)) {
-  // Create the scene
-  const { scene, camera, worldFrame } = createScene(canvas);
-  scene.background = skyboxTexture;
+// Create the main sphere geometry (light source)
+const sphereGeometry = new THREE.SphereGeometry(0.3, 32, 32);
+const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+sphere.position.set(0.0, 0.0, 0.0);
+sphere.parent = worldFrame;
+scene.add(sphere);
 
-  // Create the main sphere geometry (light source)
-  // https://threejs.org/docs/#api/en/geometries/SphereGeometry
-  const sphereGeometry = new THREE.SphereGeometry(0.3, 32, 32);
-  const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-  // sphere.position.set(77.0, 10.0,39.0/2.0);
-  sphere.position.set(0.0, 0.0, 0.0);
-  sphere.parent = worldFrame;
-  scene.add(sphere);
+const cubeGeometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
 
-  const cubeGeometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
+addCubes(cubeGeometry, worldFrame, scene);
 
-  addCubes(cubeGeometry, worldFrame, scene);
+const terrainGeometry = new THREE.BoxGeometry(77.0,39.0, 2.0);
+const terrain = new THREE.Mesh(terrainGeometry, floorMaterial);
+terrain.position.set(77.0/2.0, -1.0, 39.0/2.0);
+terrain.rotation.set(- Math.PI / 2, 0, 0);
+scene.add(terrain);
 
-  const terrainGeometry = new THREE.BoxGeometry(77.0,39.0, 2.0);
-  const terrain = new THREE.Mesh(terrainGeometry, floorMaterial);
-  terrain.position.set(77.0/2.0, -1.0, 39.0/2.0);
-  terrain.rotation.set(- Math.PI / 2, 0, 0);
-  scene.add(terrain);
-
-  sphereLight.position.set(sphere.position.x, sphere.position.y, sphere.position.z);
-  scene.add(sphereLight);
-  scenes.push({ scene, camera });
-}
+sphereLight.position.set(sphere.position.x, sphere.position.y, sphere.position.z);
+scene.add(sphereLight);
 
 const keyboard = new THREEx.KeyboardState();
 function checkKeyboard() {
@@ -394,9 +349,7 @@ function checkKeyboard() {
     spherePosition.value.y += 0.3;
   sphereLight.position.set(spherePosition.value.x, spherePosition.value.y, spherePosition.value.z);
 
-  // The following tells three.js that some uniforms might have changed
   sphereMaterial.needsUpdate = true;
-  phongMaterial.needsUpdate = true;
   floorMaterial.needsUpdate = true;
   woodMaterial.needsUpdate = true;
   metalMaterial.needsUpdate = true;
@@ -407,13 +360,11 @@ function update() {
   checkKeyboard();
   ticks.value += 1 / 100.0;
   sphereMaterial.needsUpdate = true;
-  phongMaterial.needsUpdate = true;
   floorMaterial.needsUpdate = true;
   woodMaterial.needsUpdate = true;
   metalMaterial.needsUpdate = true;
   feltMaterial.needsUpdate = true;
   requestAnimationFrame(update);
-  const { scene, camera } = scenes[mode];
   renderer.render(scene, camera);
 }
 
