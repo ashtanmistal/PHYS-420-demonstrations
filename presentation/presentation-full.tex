@@ -30,11 +30,23 @@
   \begin{frame}
     \frametitle{A Brief Outline}
     \begin{itemize}
-      \item Physics of light
-      \item Ray tracing
-      \item Traditional shading techniques
-      \item Modern graphics: tying it all together
+      \item Physics of Light
+      \item Approximations and Traditional Shading Models
+      \item Ray Tracing
+      \item Putting it into perspective + optimization
     \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+
+    % include a picture of some cool graphics
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.8\textwidth]{minecraft.jpg}
+      \caption{Graphics from the video game \textit{Minecraft}}\label{fig:minecraft}
+    \end{figure}
+    % By the end of this presentation, we'll have a better understanding of how these graphics are generated
+    % We'll also go over some of the math behind it, which will help you build your own graphics scenes
   \end{frame}
 
   \begin{frame}
@@ -201,7 +213,7 @@
 
     \url{https://phas.ubc.ca/~ashtan/}
 
-    From there, go to "WebGL Demonstration" and click on "Scene Geometry". %% TODO add this to the website
+    From there, go to "WebGL Demonstration" and click on "Scene Geometry".
 
     Here, you can view the scene that we've recreated in real life and interact with it.
 
@@ -244,9 +256,9 @@
 
     \begin{figure}
       \centering
-      \includegraphics[width=0.4\textwidth]{flat-shading.png}
-      \includegraphics[width=0.4\textwidth]{gouraud-shading.png}
+      \includegraphics[width=0.4\textwidth]{flatvsgouraud.png}
       \caption{Simple approaches to shading}\label{fig:shading}
+      % credits: https://electronics.howstuffworks.com/question484.htm
     \end{figure}
 
   \end{frame}
@@ -462,6 +474,22 @@ for each light source:
   \end{frame}
 
   \begin{frame}
+    \frametitle{Ray tracing our scene: Putting it into perspective}
+
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.5\textwidth]{ray-tracing-scene.png}
+      \caption{Ray tracing our scene}\label{fig:ray-tracing-scene}
+    \end{figure}
+
+    % this is the same scene as before and as in our real life demonstration
+    % point out the shadows to the students
+
+    Check out a rendered video of this scene on the Demos page, under "Ray Tracing - Scene".
+
+  \end{frame}
+
+  \begin{frame}
     \frametitle{We don't actually trace $10^{20}$ rays}
 
     We can't actually trace $10^{20}$ rays, of course.
@@ -473,12 +501,9 @@ for each light source:
     We can also choose to cast multiple rays per pixel, which will increase the accuracy of the scene.
     but would be more computationally expensive.
 
-  \end{frame}
-
-  \begin{frame}
-    \frametitle{Ray tracing our scene: Putting it into perspective}
-
-    %% TODO - add a picture of the scene here
+    % a 1920x1080 camera frame was exactly what was chosen for our ray tracing demo
+    % Put it into perspective for students - this scene has 172 frames and each scene took around a minute to render. That's just under 3 hours of rendering time.
+    % compare that to real time rendering using Phong shading, which took a few seconds to render the same scene.
 
   \end{frame}
 
@@ -526,6 +551,17 @@ for each light source:
 
     \end{itemize}
 
+  \end{frame}
+
+  \begin{frame}{What benefits does ray tracing have?}
+
+    \begin{itemize}
+      \item It's a very accurate way of rendering a scene - it can be used to create photorealistic images
+      \item It allows us to model complex phenomena, such as soft shadows, volume rendering, and caustics
+      \item It's a very flexible rendering technique % - it can be used to render any scene, regardless of the complexity of the scene
+      \end{itemize}
+
+      But we have to ask - Are these benefits worth the drastically increased computational cost?
   \end{frame}
 
 \end{document}

@@ -1,0 +1,15 @@
+
+    \footnotesize            \begin{lstlisting}[label={lst:pseudocode-raytrace}]
+for each light source:
+    for each angle:
+        cast a ray from light source at angle
+        while the ray hasn't hit anything:
+            if ray hits an object:
+                determine the colour of obj
+                add obj color to light source color
+                Bounce ray off object and continue
+            if ray hits camera:
+                add ray color to pixel in camera frame
+            If ray exits scene: break
+    \end{lstlisting}
+

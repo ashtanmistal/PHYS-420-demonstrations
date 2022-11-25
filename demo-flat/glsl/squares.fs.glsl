@@ -1,30 +1,27 @@
-// HINT: Don't forget to define the uniforms here after you pass them in in main.js
+// Textures are passed in as uniforms
+uniform vec3 ambientColor;
+uniform float kAmbient;
 
-// The value of our shared variable is given as the interpolation between normals computed in the vertex shader
-// below we can see the shared variable we passed from the vertex shader using the 'in' classifier
+uniform vec3 diffuseColor;
+uniform float kDiffuse;
+
+uniform vec3 specularColor;
+uniform float kSpecular;
+uniform float shininess;
+
+uniform mat4 modelMatrix;
+
+uniform vec3 spherePosition;
 in vec3 interpolatedNormal;
-in vec3 lightDirection;
-in vec3 vertexPosition;
-uniform float ticks;
+in vec3 viewPosition;
+in vec3 worldPosition;
+
+in vec2 texCoord;
+uniform sampler2D colorMap;
+// out vec4 out_FragColor;
 
 void main() {
-    // HINT: Compute the light intensity the current fragment by determining
-    // the cosine angle between the surface normal and the light vector.
-    float intensity = dot(normalize(interpolatedNormal), normalize(lightDirection));
 
-    // HINT: Pick any two colors and blend them based on light intensity
-    vec3 gridColour1 = vec3(1.0,0.3,0.4);
-    vec3 gridColour2 = vec3(0.5,0.2,0.7);
-
-    // to give the 3D model some color and depth.
-    vec3 out_Stripe = mix(gridColour1, gridColour2, intensity);
-
-    if ( !(
-    mod(vertexPosition.x + ticks, 0.15) < 0.13 &&
-    mod(vertexPosition.y + ticks, 0.15) < 0.13 &&
-    mod(vertexPosition.z + ticks/3.0, 0.15) < 0.13 )) {
-        discard;
-    }
-    // HINT: Set final rendered colour
-    gl_FragColor = vec4(out_Stripe, 1.0);
+  // gl_FragColor = vec4(vec3(0.0), 1.0);
+  gl_FragColor = texture(colorMap, texCoord);
 }

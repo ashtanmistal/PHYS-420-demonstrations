@@ -34,11 +34,11 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Ashtan Mistal - Physics 420 Project</span>
+      <span class="mdl-layout-title">WebGL Demonstrations</span>
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Ashtan Mistal - Physics 420 Project</span>
+    <span class="mdl-layout-title"></span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="index.html">Home</a>
       <a class="mdl-navigation__link" href="slides.html">Presentation Slides</a>
@@ -68,7 +68,7 @@
                   <h2 class="mdl-card__title-text">Scene Geometry</h2>
                 </div>
                 <div class="mdl-card__supporting-text">
-                  <p> This demo shows a scene with no lighting. The objects are rendered with flat shading, which means that the color of each face is the same as the color of the vertex at the center of the face. </p>
+                  <p> This demo shows a scene with no lighting. The objects are rendered with no shading, and so the color of each face of the objects are the textures themselves. </p>
                 </div>
                 <button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" onclick="window.location.href='demo-flat/main.html'">Scene Geometry</button>
               </div>
@@ -79,7 +79,7 @@
                   <h2 class="mdl-card__title-text"> Phong Shading</h2>
                 </div>
                 <div class="mdl-card__supporting-text">
-                  <p> This demo shows our scene lit with a point light source using the Phong shading model. </p>
+                  <p> This demo shows our scene lit with a point light source using the Phong shading model with different ambient, specular, and diffuse reflectivity for the different objects.</p>
                 </div>
                 <button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" onclick="window.location.href='demo-phong/main.html'">Phong Shading</button>
               </div>
@@ -90,8 +90,8 @@
                   <h2 class="mdl-card__title-text">Ray Tracing on a Sphere</h2>
                 </div>
                 <div class="mdl-card__supporting-text">
-                  <p> This demo shows a scene with a single sphere. The sphere is rendered with ray tracing, which means that the color of each pixel is calculated by tracing a ray from the camera through the pixel and finding the color of the object that the ray hits. </p>
-                  <p> To move the light source, use your mouse or your finger to drag the light source around the scene. </p>
+                  <p> This demo shows a scene with a single sphere rendered using ray tracing, and lit with a point light source. </p>
+                  <p> Move the light source using your finger or your mouse. Note that this demo was not made by me - credits are below. </p>
                 </div>
                 <button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" onclick="window.location.href='demo-raytraced/main.html'">Ray Tracing - Sphere</button>
               </div>
@@ -103,11 +103,13 @@
                   <h2 class="mdl-card__title-text">Ray Tracing on the Scene</h2>
                 </div>
                 <div class="mdl-card__supporting-text">
-                  <p> This demo shows the scene being fully lit with ray tracing. Note that it is pre-rendered, so the light cannot be moved. </p>
+                  <p> This demo shows the scene being fully lit with ray tracing. Note that it is pre-rendered, so the light cannot be moved. There are two videos - One with an area light source, and one with a point light source. </p>
                 </div>
                 <button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" onclick="window.location.href='demo-raytraced-scene/main.html'">Ray Tracing - Scene</button>
               </div>
             </div>
+
+            <p> The Ray Traced - Sphere demonstration is created by Sushindhran Harikrishnan, and the link to the source code is <a href="https://github.com/neosavvyinc/WebGL">here</a>. </p>
           </div>
         </div>
       </div>

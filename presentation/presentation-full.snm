@@ -1,0 +1,9 @@
+\beamer@slide {fig:diffuse_specular}{4}
+\beamer@slide {fig:shading}{10}
+\beamer@slide {eq:specular}{12}
+\beamer@slide {fig:phong-shading}{13}
+\beamer@slide {lst:pseudocode-raytrace}{16}
+\beamer@slide {fig:camera-models}{22}
+\beamer@slide {fig:camera-coordinates}{23}
+\beamer@slide {fig:ray-tracing-scene}{24}
+\beamer@slide {fig:caustics}{26}
