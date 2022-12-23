@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7c8bcbf4-754d-4a6f-9f2a-9e289a97a8a0" name="Changes" comment="Updated presentation.tex and created webGL scene for shading models. Routed website links to in-progress WebGL demos.">
+      <change afterPath="$PROJECT_DIR$/demo-phong/glsl/felt.fs.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo-phong/glsl/felt.vs.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo-raytraced/gl_utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/presentation/presentation-20mins.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/presentation/presentation-full.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-flat/glsl/floor.fs.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/demo-flat/glsl/floor.fs.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-phong/glsl/floor.fs.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/demo-phong/glsl/floor.fs.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-phong/glsl/floor.vs.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/demo-phong/glsl/floor.vs.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-phong/glsl/metal.fs.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/demo-phong/glsl/metal.fs.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-phong/glsl/metal.vs.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/demo-phong/glsl/metal.vs.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-phong/glsl/phong.fs.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/demo-phong/glsl/phong.fs.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-phong/glsl/wood.fs.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/demo-phong/glsl/wood.fs.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-phong/glsl/wood.vs.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/demo-phong/glsl/wood.vs.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-phong/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/demo-phong/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/glsl/floor.fs.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/glsl/floor.vs.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/glsl/metal.fs.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/glsl/metal.vs.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/glsl/phong.fs.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/glsl/phong.vs.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/glsl/sphere.fs.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/glsl/sphere.vs.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/glsl/squares.fs.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/glsl/squares.vs.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/glsl/toon.fs.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/glsl/toon.vs.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/glsl/wood.fs.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/glsl/wood.vs.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/js/KeyboardState.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/js/OBJLoader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/js/ObjectLoader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/js/OrbitControls.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/js/SourceLoader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/js/WebGL.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/js/setup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/js/three.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo-raytraced/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/obj/Chest.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/obj/armadillo.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/texture/color.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/texture/cubemap/normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/texture/felt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/texture/metal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/texture/normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-raytraced/texture/woodcolor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demoswitcher.html" beforeDir="false" afterPath="$PROJECT_DIR$/demoswitcher.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation/presentation.tex" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2FKXHTD9CFPuNN8L1AiIbISl2uK" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mista/OneDrive - School/OneDrive - The University Of British Columbia/School/2022W1/PHYS404/termposter&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Console Font&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;TEXT&quot;,
+      &quot;Racket&quot;,
+      &quot;PLAIN_TEXT&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mista\OneDrive - School\OneDrive - The University Of British Columbia\School\2022W1\PHYS420\Website\demo-raytraced" />
+      <recent name="C:\Users\mista\OneDrive - School\OneDrive - The University Of British Columbia\School\2022W1\PHYS420\Website\rtdemo\texture\cubemap" />
+      <recent name="C:\Users\mista\OneDrive - School\OneDrive - The University Of British Columbia\School\2022W1\PHYS420\Website\rtdemo\images" />
+      <recent name="C:\Users\mista\OneDrive - School\OneDrive - The University Of British Columbia\School\2022W1\PHYS420\Website\rtdemo\glsl" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.Demo.html">
+    <configuration name="Demo.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Website/rtdemo/Demo.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="presentation" type="LATEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory" temporary="true">
+      <texify>
+        <compiler>PDFLATEX</compiler>
+        <compiler-path />
+        <sumatra-path />
+        <pdf-viewer>NONE</pdf-viewer>
+        <viewer-command />
+        <compiler-arguments />
+        <envs />
+        <main-file>$PROJECT_DIR$/presentation/presentation.tex</main-file>
+        <output-path>$PROJECT_DIR$/out</output-path>
+        <auxil-path>{projectDir}/auxil</auxil-path>
+        <compile-twice>false</compile-twice>
+        <output-format>PDF</output-format>
+        <latex-distribution>TEXLIVE</latex-distribution>
+        <has-been-run>false</has-been-run>
+        <bib-run-config>[]</bib-run-config>
+        <makeindex-run-config>[]</makeindex-run-config>
+      </texify>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="LaTeX.presentation" />
+        <item itemvalue="JavaScript Debug.Demo.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7c8bcbf4-754d-4a6f-9f2a-9e289a97a8a0" name="Changes" comment="" />
+      <created>1664241662777</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664241662777</updated>
+      <workItem from="1664241665778" duration="250000" />
+      <workItem from="1664241951481" duration="1204000" />
+      <workItem from="1664302022536" duration="41000" />
+      <workItem from="1664417144204" duration="41000" />
+      <workItem from="1664494817661" duration="784000" />
+      <workItem from="1664557661591" duration="1250000" />
+      <workItem from="1664668345244" duration="14571000" />
+      <workItem from="1664771891549" duration="1740000" />
+      <workItem from="1664821635274" duration="20000" />
+      <workItem from="1664825463782" duration="59000" />
+      <workItem from="1664943221164" duration="3105000" />
+      <workItem from="1664998218686" duration="1147000" />
+      <workItem from="1665005091075" duration="11145000" />
+      <workItem from="1665079635598" duration="667000" />
+      <workItem from="1665081018070" duration="1711000" />
+      <workItem from="1665180933721" duration="2420000" />
+      <workItem from="1665183862873" duration="1495000" />
+      <workItem from="1665187333139" duration="583000" />
+      <workItem from="1665248651605" duration="16344000" />
+      <workItem from="1665340836643" duration="3935000" />
+      <workItem from="1665348053541" duration="8852000" />
+      <workItem from="1665380496284" duration="1675000" />
+      <workItem from="1665453899196" duration="2940000" />
+      <workItem from="1665457755611" duration="365000" />
+      <workItem from="1665500226560" duration="3201000" />
+      <workItem from="1665548050972" duration="2852000" />
+      <workItem from="1665594261073" duration="7164000" />
+      <workItem from="1665680051884" duration="4727000" />
+      <workItem from="1665705073567" duration="294000" />
+      <workItem from="1666469481834" duration="22472000" />
+      <workItem from="1666542568276" duration="8211000" />
+      <workItem from="1666555860895" duration="598000" />
+      <workItem from="1666728634205" duration="1152000" />
+      <workItem from="1666733071431" duration="3178000" />
+      <workItem from="1666821213637" duration="15282000" />
+      <workItem from="1666896953304" duration="1220000" />
+      <workItem from="1666928585734" duration="5363000" />
+      <workItem from="1667352388567" duration="19106000" />
+      <workItem from="1667408962895" duration="40000" />
+      <workItem from="1667712327886" duration="2308000" />
+      <workItem from="1667848064946" duration="5190000" />
+      <workItem from="1667861781460" duration="1648000" />
+      <workItem from="1667886915855" duration="781000" />
+      <workItem from="1667967712580" duration="3848000" />
+      <workItem from="1668060365038" duration="3434000" />
+      <workItem from="1668136924715" duration="4862000" />
+      <workItem from="1668213638712" duration="5054000" />
+      <workItem from="1668305101465" duration="5800000" />
+      <workItem from="1668375733601" duration="9579000" />
+      <workItem from="1668411894215" duration="664000" />
+      <workItem from="1668527107904" duration="1619000" />
+      <workItem from="1668531408735" duration="9198000" />
+      <workItem from="1668541974601" duration="98000" />
+      <workItem from="1668542468455" duration="30000" />
+      <workItem from="1668542576589" duration="1583000" />
+      <workItem from="1668544386492" duration="2647000" />
+      <workItem from="1668548774507" duration="1146000" />
+      <workItem from="1668725928343" duration="1179000" />
+      <workItem from="1668802503533" duration="549000" />
+      <workItem from="1668811420074" duration="72000" />
+      <workItem from="1669007544850" duration="627000" />
+      <workItem from="1669071494816" duration="3734000" />
+      <workItem from="1669078312590" duration="1161000" />
+      <workItem from="1669080044853" duration="3738000" />
+      <workItem from="1669085797430" duration="38000" />
+      <workItem from="1669143425235" duration="330000" />
+      <workItem from="1669154587187" duration="952000" />
+      <workItem from="1669172400020" duration="5028000" />
+      <workItem from="1669226508276" duration="372000" />
+      <workItem from="1669230481116" duration="145000" />
+      <workItem from="1669230835337" duration="267000" />
+      <workItem from="1669233904345" duration="147000" />
+      <workItem from="1669234090940" duration="148000" />
+      <workItem from="1669276501192" duration="852000" />
+    </task>
+    <task id="LOCAL-00001" summary="added more website features and index.html">
+      <created>1664998282837</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1664998282837</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Merged demonstration files with main project. Updated index.html and contact.html">
+      <created>1665012915087</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665012915087</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Updated presentation.tex and created webGL scene for shading models. Routed website links to in-progress WebGL demos.">
+      <created>1668544505192</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1668544505192</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Updated presentation.tex and created webGL scene for shading models. Routed website links to in-progress WebGL demos.">
+      <created>1668544775001</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668544775001</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="added more website features and index.html" />
+    <MESSAGE value="Added some files for webgl demo; updated index.html" />
+    <MESSAGE value="Merged demonstration files with main project. Updated index.html and contact.html" />
+    <MESSAGE value="Updated presentation.tex and created webGL scene for shading models. Routed website links to in-progress WebGL demos." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated presentation.tex and created webGL scene for shading models. Routed website links to in-progress WebGL demos." />
+  </component>
+</project>

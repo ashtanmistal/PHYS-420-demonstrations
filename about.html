@@ -1,18 +1,17 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <!--  <title></title>-->
+  <link rel="manifest" href="/material-components-web-catalog/manifest.json">
   <title>Ashtan Mistal - Physics 420 Project</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css" />
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.amber-indigo.min.css" />
   <link rel="stylesheet" href="styles.css" />
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <meta property="og:title" content="">
   <meta property="og:type" content="">
   <meta property="og:url" content="">
@@ -25,7 +24,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 
-  <meta name="theme-color" content="#fafafa">
+  <meta name="theme-color" content="#5e4144">
 </head>
 
 <body>
@@ -54,9 +53,208 @@
   <main class="mdl-layout__content">
     <div class="page-content">
       <!-- Add an about me section here.-->
-      <h1>About Me</h1>
+      <!-- Make a vertical card that is locked to the top right corner of the page.-->
+      <!--      this card should include my profile picture, my name, and links to my social media pages. -->
+      <!--      <div class="mdl-card mdl-shadow&#45;&#45;2dp" style="width: 300px; height: 300px; position: fixed; top: 20px; right: 0; margin: 20px;">-->
+      <!--      fix it 20 pixels below the top of the page.-->
+      <div class="desktop-only mdl-card mdl-shadow--2dp mdl-elevation--z16" style="width: 13%; height: auto; position: fixed; top: 120px; right: 0; margin: 20px; border-radius: 5%;">
+        <img src="AshtanMistal.JPG" alt="Ashtan Mistal" style="box-sizing: content-box; width: 100%; height: auto;">
+        <div class="mdl-card__title">
+          <h2 class="mdl-card__title-text">Ashtan Mistal</h2>
+        </div>
 
-      <!-- TODO Add some more information about me here.-->
+        <div class="mdl-card__actions mdl-card--border">
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.instagram.com/ashtanmistal/">
+            Instagram
+          </a>
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.linkedin.com/in/ashtanmistal/">
+            LinkedIn
+          </a>
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.github.com/ashtanmistal/">
+            GitHub <i class="material-icons">code</i>
+          </a>
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.ashtan.ca">
+            Website <i class="material-icons">web</i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Add a primary tab bar here.-->
+      <!-- This tab bar should have 4 tabs: One for the "About", one for "Resume", one for "Contact", and one for "Projects".-->
+      <!-- the About tab should be the default tab, and has a material-icons icon of "Person".-->
+      <!-- the Resume tab should have a material-icons icon of "Description".-->
+      <!-- the Contact tab should have a material-icons icon of "Contact Page".-->
+      <!-- the Projects tab should have a material-icons icon of "Construction".-->
+      <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+        <div class="mdl-tabs__tab-bar" style="position: fixed; top: auto; width: 100%; background: white;">
+          <a href="#about" class="mdl-tabs__tab is-active" style="color: black; text-decoration: none; font-size: 14px;">
+            <i class="material-icons">person</i> About</a>
+<!--          <a href="#resume" class="mdl-tabs__tab" style="color: black; text-decoration: none; font-size: 14px;">-->
+<!--            <i class="material-icons">description</i> Resume</a>-->
+          <a href="#contact" class="mdl-tabs__tab" style="color: black; text-decoration: none; font-size: 14px;">
+            <i class="material-icons">contact_page</i> Contact</a>
+          <a href="#projects" class="mdl-tabs__tab" style="color: black; text-decoration: none; font-size: 14px;">
+            <i class="material-icons">construction</i> Projects</a>
+        </div>
+
+        <div class="mdl-tabs__panel is-active" id="about">
+          <div class="mdl-grid" style="width: 70%; margin: 0 auto;">
+            <div class="mdl-cell mdl-cell--12-col" style="margin-top: 30px;">
+              <h1>About Me</h1>
+              <p>
+                Welcome to my website! My name is Ashtan Mistal, and I am currently a double major in Physics and Computer Science at the University of British Columbia.
+              I am also a teaching assistant for the <a href="https://cs110.students.cs.ubc.ca/admin/team.html">Computer Science 110 course at UBC</a>, an introductory course on systematic program design.
+              Outside of this, I am a residence advisor on campus, where I support residents in their academic and personal development through a variety of programs and events and peer-to-peer support.
+
+              </p>
+              <p><br></p>
+              <p>
+                Throughout my studies, I have developed a passion for computer graphics and computer vision, and this has helped shape some of my personal projects (see Projects tab on this page).
+              Connection with the real world is what drives this interest: Computer graphics allows us to create virtual worlds that are indistinguishable from the real world, and also to simulate complex physical phenomena.
+              The latter provides the forefront of scientific discovery, and is a key component of many of the technologies that we use today.
+
+              Computer vision also provides interaction with the real world - this time in a conceptually opposite way, by allowing us to extract information from the real world through cameras and sensors and making sense of it and using it to make decisions.
+
+              Both of these allow for greater integration and connection between the virtual and real worlds, and I am excited to see where this will go in the future.
+              </p>
+
+              <p><br></p>
+
+              <p>
+                Taking a combination of both Physics and Computer Science has allowed me to develop a strong foundation in both fields and also begin to understand the slice of knowledge that is the intersection between the two.
+                I believe this intersection is where some of the most exciting and impactful research is being done.
+              </p>
+
+              <p><br></p>
+
+              <p>
+                In my spare time, I enjoy Tae Kwon Do, music production, mountain biking, hiking, and thrifting. <!-- Expand on this.-->
+                Vancouver provides the perfect backdrop for all of these activities, and I am always looking for new ways to get outside and experience the city and the surrounding area.
+              </p>
+
+              <p><br></p>
+
+              <p>
+                I am always looking for new opportunities to learn and grow, and I am looking forward to seeing where this journey takes me.
+                If you would like to get in touch, please feel free to reach out to me through the Contact page (see Contact tab on this page), whether you have any questions about the website material, or just want to chat.
+                I'd be happy to answer questions if you're interested in any of the topics I've covered, or if you're interested in learning more about my experiences.
+              </p>
+
+              <div class="mobile-only mdl-card mdl-shadow--2dp" style="width: 100%; margin-top: 30px; max-width: 200px;">
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Ashtan Mistal</h2>
+                </div>
+                <img src="AshtanMistal.JPG" alt="Ashtan Mistal" style="box-sizing: content-box; width: 100%; height: auto;">
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.instagram.com/ashtanmistal/">
+                    Instagram
+                  </a>
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.linkedin.com/in/ashtanmistal/">
+                    LinkedIn
+                  </a>
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.github.com/ashtanmistal/">
+                    GitHub <i class="material-icons">code</i>
+                  </a>
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.ashtan.ca">
+                    Website <i class="material-icons">web</i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mdl-tabs__panel" id="contact">
+          <div class="mdl-grid" style="width: 70%; margin: 0 auto;">
+            <div class="mdl-cell mdl-cell--12-col" style="margin-top: 30px;">
+              <h1>Contact</h1>
+              <p> Contact page coming soon!</p>
+          <div class="mobile-only mdl-card mdl-shadow--2dp" style="width: 100%; margin-top: 30px; max-width: 200px;">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Ashtan Mistal</h2>
+            </div>
+            <img src="AshtanMistal.JPG" alt="Ashtan Mistal" style="box-sizing: content-box; width: 100%; height: auto;">
+            <div class="mdl-card__actions mdl-card--border">
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.instagram.com/ashtanmistal/">
+                Instagram
+              </a>
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.linkedin.com/in/ashtanmistal/">
+                LinkedIn
+              </a>
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.github.com/ashtanmistal/">
+                GitHub <i class="material-icons">code</i>
+              </a>
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.ashtan.ca">
+                Website <i class="material-icons">web</i>
+              </a>
+            </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="mdl-tabs__panel" id="projects">
+          <div class="mdl-grid" style="width: 70%; margin: 0 auto;">
+            <div class="mdl-cell mdl-cell--12-col" style="margin-top: 30px;">
+          <h1>Projects</h1>
+          <!-- Make a card for each project that takes up the whole width of the page. -->
+              <!-- When a project is clicked, it expands to show more information. -->
+              <div class="mdl-card mdl-card--width-full mdl-shadow--2dp" onclick="expandProject(this)">
+                <div class="mdl-card__title" style="background-image: url(AshtanMistal.JPG);">
+                  <h2 class="mdl-card__title-text">Title</h2>
+                  <div class="mdl-layout-spacer"></div>
+                  <i class="material-icons">expand_more</i>
+                </div>
+                <div class="mdl-card__supporting-text" id="box" style="display:none;">
+                  <!-- Content of the box goes here -->
+                </div>
+                <div class="mdl-card__actions">
+                  <!-- Buttons or other interactive elements go here -->
+                </div>
+              </div>
+
+              <script>
+                function expandProject(project) {
+                  // blur the rest of the page
+                  // show the project's content in a scrollable box
+                  // show the buttons in the card actions
+                  // add a close button to the box
+
+                  // if the project is already expanded
+                  if (project.getElementsByClassName("mdl-card__supporting-text")[0].style.display === "block") {
+                    // close the project
+                    project.getElementsByClassName("mdl-card__supporting-text")[0].style.display = "none";
+                    project.getElementsByClassName("mdl-card__actions")[0].style.display = "none";
+                  } else {
+                    // expand the project
+                    project.getElementsByClassName("mdl-card__supporting-text")[0].style.display = "block";
+                    project.getElementsByClassName("mdl-card__actions")[0].style.display = "block";
+                  }
+                }
+              </script>
+
+          <div class="mobile-only mdl-card mdl-shadow--2dp" style="width: 100%; margin-top: 30px; max-width: 200px;">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Ashtan Mistal</h2>
+            </div>
+            <img src="AshtanMistal.JPG" alt="Ashtan Mistal" style="box-sizing: content-box; width: 100%; height: auto;">
+            <div class="mdl-card__actions mdl-card--border">
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.instagram.com/ashtanmistal/">
+                Instagram
+              </a>
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.linkedin.com/in/ashtanmistal/">
+                LinkedIn
+              </a>
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.github.com/ashtanmistal/">
+                GitHub <i class="material-icons">code</i>
+              </a>
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.ashtan.ca">
+                Website <i class="material-icons">web</i>
+              </a>
+            </div>
+          </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
   </main>

@@ -105,3 +105,23 @@ p {
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (max-width: 800px) {
+  .mobile-only {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .mobile-only {
+    display: none;
+  }
+
+  .desktop-only {
+    display: block;
+  }
+}
