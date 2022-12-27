@@ -12,6 +12,10 @@
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="materialize" level="application" />
     <orderEntry type="library" name="jquery-2.1.1" level="application" />
-    <orderEntry type="library" name="material.cyan-light_blue" level="application" />
+    <orderEntry type="library" name="material.blue_grey-deep_orange" level="application" />
+    <orderEntry type="library" name="material" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="materialize" level="application" />
+    <orderEntry type="library" name="jquery-2.1.1" level="application" />
   </component>
 </module>
