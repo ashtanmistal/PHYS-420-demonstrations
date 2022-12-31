@@ -51,9 +51,116 @@
 
   <main class="mdl-layout__content">
     <div class="page-content">
-      <!--      TODO add content here-->
-      <h1>How-To Guide</h1>
-      <p>Coming soon!</p>
+
+      <div class="mdl-grid portfolio-max-width" style="width: 100%;">
+        <div class="mdl-card__title">
+          <h2 class="mdl-card__title-text">How To Make The Demo</h2>
+        </div>
+
+        <div class="mdl-grid portfolio-copy">
+          <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline" id="hands-on-demo">Hands-On Demo</h3>
+          <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+            <p>
+            Let's go through how the hands-on demo, the one that was created using wood and felt, was created.
+            We'll go over both the actual schematic as well as a generalized approach to creating a demo similar to this one.
+            </p>
+            <p>
+            <!-- TODO add the content -->
+            </p>
+          </div>
+          <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline" id="webgl-demos">WebGL Demos</h3>
+          <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+            <p>
+            Let's go through how the WebGL demos were created.
+            We'll primarily outline the steps taken to create the WebGL demos, but if you want to see the actual code for the demos themselves,
+            as well as corresponding comments and documentation, you can view the code on <a href="https://github.com/ashtanmistal/PHYS-420-raytracing-demo">GitHub</a>.
+            </p>
+            <p>
+            <br>
+            </p>
+              <h4> Setting up the Scene</h4> <!-- add an id to this -->
+              <p>
+                First, we set up the html file that will contain the WebGL demo.
+                This file will contain the canvas element that will contain the WebGL demo, as well as the scripts that set up the canvas, WebGL language, various object loaders, and the demo itself.
+                The demo itself is contained in <code>main.js</code> for all of the demos.
+                Let's take a closer look at this javascript file.
+                We won't go into many details here, but we'll go over the general structure of the file.
+                Looking at this will allow us to see how the WebGL demo is set up, as well as how to modify the demo to add different objects and change their positions and other properties.
+
+                <br>
+
+                First, after calling <code>setup()</code>, we load the textures we're using for the demo using <code> THREE.TextureLoader().load( 'texture.png' )</code>, where <code>texture.png</code> is the name of the texture file.
+                For all of the textures that we've loaded, we want to be able to control how they interact with the light in the scene.
+                Each lighting model will need slightly different components for what they need to be able to interact with the light.
+                Let's look at Phong shading, considering that the geometry demo does not have any shading, and the ray traced scene was rendered in Blender.
+                We set the values using RGB values, where each value is between 0 and 1.
+
+                <br>
+                I've also defined constants for the cube size, as well as an offset so that the position for each cube can be set to be the exact center of the cube in a more readable way.
+
+                <br>
+
+                I then define materials for each of the objects in the scene, passing in the uniforms we've defined above.
+
+                Then, we make the skybox so that it's a black background - you can use whatever textures you want for the skybox if you want to try something different.
+
+<br>
+
+                We then load the shader files that we need to define for all of the different types of objects in the scene, and then assign the shaders to the materials we've defined using <code> THREE.SourceLoader()</code>.
+
+<br>
+
+                Next it's time to add the cubes to the scene. We have a lot of them, so I extracted this to its own method, <code>addCubes()</code>.
+                The exact positions of these cubes are dependent on our in-person demo, so <b> this is the part that you'll need to modify if you want to create a demo similar to ours </b>.
+                For each cube, we create a mesh object, set the position, set the parent to the world frame<sup><a href="#footnote1">1</a></sup>, and add it to the scene.
+
+                <br>
+
+                After that, it's more scene setup. We call the <code> createScene()</code> function to define the scene, camera, and world frame.
+                I define geometries for the sphere and the cubes, and then call the <code>addCubes()</code> function to add the cubes to the scene.
+                Then the terrain is created.
+
+                <br>
+
+                The next thing in the code is the function that checks keyboard input.
+                This provides the functionality of moving the light source around as you see in the demo.
+                Lastly, we define the <code> update()</code> function that will be called every frame, and then we start the animation loop by calling that function.
+
+            </p>
+
+            <h4> Creating the Shader Files</h4> <!-- add an id to this -->
+
+            <p><a id="footnote1">1</a> Setting the parent of an object defines the hierarchical relationship between objects in the scene. Setting the parent of the cube to the world frame means that the cube's position and orientation will be relative to the world frame, (as opposed to setting the parent as another object, which would mean that the cube's position and orientation would be relative to that object and so will move with that object). </p>
+          </div>
+        </div>
+
+        <!-- On the right hand side of the page, include a linked outline of the page -->
+        <div class="desktop-only mdl-cell mdl-cell--4-col mdl-card mdl-shadow--4dp portfolio-card" style="width: auto; height: auto; position: fixed; top: 120px; right: 0; margin: 20px; border-radius: 5%;">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Outline</h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+            <ul>
+              <li><a href="#hands-on-demo">Hands-On Demo</a></li>
+              <li><a href="#webgl-demos">WebGL Demos</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">Ashtan Mistal. Created for PHYS 420. </div>
+        </div>
+        <div class="mdl-mini-footer__right-section">
+          <ul class="mdl-mini-footer__link-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="slides.html">Presentation Slides</a></li>
+            <li><a href="howto.html">How-To Guide</a></li>
+            <li><a href="demoswitcher.html">WebGL Demonstrations</a></li>
+            <li><a href="about.html">About Me</a></li>
+          </ul>
+        </div>
+      </footer>
     </div>
   </main>
 </div>
