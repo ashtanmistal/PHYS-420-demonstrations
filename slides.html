@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Presentation Slides</title>
+  <title>Presentation Slides | Ashtan Mistal - PHYS 420</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -51,142 +51,223 @@
 
   <main class="mdl-layout__content">
     <div class="page-content">
-      <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--12-col">
-          <h1>Presentation Slides</h1>
-
-          <h6> Speakers notes are below the slides. </h6>
-          <embed src="presentation/PHYS_420_Presentation.pdf" type="application/pdf" width="100%" height="900px" />
-          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="window.open('presentation/PHYS_420_Presentation.pdf', '_blank');"> Download Presentation </button>
-
+      <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+        <div class="mdl-tabs__tab-bar" style="position: fixed; top: auto; border: 0; width: 100%; background: white;">
+          <a href="#slides" class="mdl-tabs__tab" style="color: black; text-decoration: none; font-size: 14px;">
+            <i class="material-icons" style="font-size: 14px;">slideshow</i> Slides </a>
+          <a href="#speakernotes" class="mdl-tabs__tab" style="color: black; text-decoration: none; font-size: 14px;">
+            <i class="material-icons" style="font-size: 14px;">speaker_notes</i> Speaker Notes </a>
+          <a href="#lessonplan" class="mdl-tabs__tab" style="color: black; text-decoration: none; font-size: 14px;">
+            <i class="material-icons" style="font-size: 14px;">assignment</i> Lesson Plan </a>
         </div>
-
-        <div class="mdl-cell mdl-cell--12-col">
-
-          <h1>In-Depth Content</h1>
-          <p> The following notes are included below in the order they appear in the presentation. Not every slide will have something extra accompanied below. You can think of the notes below as the speaker notes for the presentation, as they'll be useful for understanding the presentation slides if you want to come back to them later or give the presentation yourself.</p>
-
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell&#45;&#45;4&#45;&#45;col">
-
-              <h4>Physics of Light</h4>
-              <p> Light is both a particle and a wave. Here, we care most about light as a particle. Focusing on the particle aspect of light is important because it allows us to model light as a ray. We'll get to this later.</p>
-              <p> A light particle - a photon - has two key characteristics that are important to us:
-                It has a wavelength, which determines its colour, and it has a direction, which determines where it goes. </p>
-
-            </div>
-            <div class="mdl-cell mdl-cell&#45;&#45;4&#45;&#45;col">
-
-              <h4> Reflection of light</h4>
-
-              <p> Note that we're not discussing refraction here. Refraction is the bending of light as it passes from one medium to another. Reflection is the bouncing of light off a surface. We have two types of reflection: diffuse and specular. Diffuse reflection is the reflection of light from a surface that is not smooth. For example, if we shine a laser on a wall, the light is scattered in all directions. We can see the laser on the wall even if we're not at the same angle as the laser. This is diffuse reflection.  The overall interaction of light on a given surface is a combination of diffuse and specular reflection inherent in the material properties of the surface. </p>
-
-            </div>
-            <div class="mdl-cell mdl-cell&#45;&#45;4&#45;&#45;col">
-
-              <h4> Reflection: Mathematically</h4>
-
-              <p> We have the angle of incidence and the angle of reflection. When we consider an arbitrary surface, the angle of incidence is the angle between the normal of the surface and the direction of the incoming light. The angle of reflection is the angle between the normal of the surface and the direction of the reflected light. Based on the law of reflection, we can say that the angle of incidence is equal to the angle of reflection. </p>
-
-              <p> The normal of a surface is just a vector that is perpendicular to the surface. It's simple to find for objects such as a sphere, where the normal is just the vector from the center of the sphere to the point on the surface (but pointed away from the sphere). For a plane, the normal is just the vector that is perpendicular to the plane. </p>
-
-              <p> So, for a cube, the normal will be the same for all places on one face of a cube, and it'll be facing away from the cube.</p>
-
-            </div>
-            <div class="mdl-cell mdl-cell&#45;&#45;4&#45;&#45;col">
-
-              <h4> Scene Geometry</h4>
-
-              <p> If we want to go from tracing a single ray to performing actions on an entire scene of objects, we need to be able to represent the scene in a way that we can easily manipulate.
-
-                We can do this by representing the scene as a collection of objects, each with a position, a size, and a colour.
-                We also have a floor that these objects are sitting on.
-
-                To view the scene we're looking at today, navigate to <a href="demoswitcher.html">WebGL Demonstrations</a> and select the "Scene Geometry" demo. Here, you can view the scene that we've recreated in real life and interact with it. </p>
-
-            </div>
-            <div class="mdl-cell mdl-cell&#45;&#45;4&#45;&#45;col">
-
-              <h4> A Simple Approach to Shading</h4>
-
-              <p> From where the light source is and the face of the object that's being lit up, we can determine the angle of incidence between the light source and the face of the object.
-
-                A simple approach is to just make the object brighter the smaller the angle of incidence is.
-
-                This means that if a face is barely visible to the light source, it won't be as bright as a face that's directly facing the light source.
-
-                If we break up our object into a grid of squares, we can then determine the colour of each square by determining the angle of incidence between the light source and the normal of the square.
-
-                Of course, we're ignoring so much here - the fact that light is reflected off of the object, the fact that we might have both diffuse and specular reflection, and much more. But this is a good start.
-
-                We can improve this model by smoothing out the colour of the object by averaging the colour of the squares that are adjacent to each other. This is called Gouraud shading.
-              </p>
-
-            </div>
-            <div class="mdl-cell mdl-cell&#45;&#45;4&#45;&#45;col">
-
-              <h4> A caveat before moving on to tracing rays</h4>
-
-              <p> I've mentioned a few different names for the types of shading we've discussed so far. These names aren't really important - you don't have to memorize them, but I want to mention them because they're used in the literature if you want to learn more about these topics. For reference, Phong shading is the standard shading model that's used widely in computer graphics, especially in video games as it can be done in real time (as you can see in the demo). </p>
-
-            </div>
-            <div class="mdl-cell mdl-cell&#45;&#45;4&#45;&#45;col">
-
-              <h4> Real Life Demonstration</h4>
-
-              <p> Let's see what a ray trace would look like in real life using the same scene as before, this time using the real-life scene as a reference.
-                We'll see why we're using our real life demonstration to trace the rays to begin with in a moment.
-
-                If we start with a single light ray - a laser - we see that the light is reflected off of the objects, using both diffuse and specular reflection. The light rays travel until they either hit the camera, get absorbed, or exit the scene.
-
-                If we move to a point light source - a flashlight - the scene is fully lit up, and we have tons of light rays bouncing around the scene. This, of course, generates an accurate depiction of the scene (but it's real life, so of course it's accurate)
-              </p>
-
-            </div>
-            <div class="mdl-cell mdl-cell&#45;&#45;4&#45;&#45;col">
-
-              <h4> Outwards from the camera </h4>
-
-              <p> We first need to take a look at how we're representing our camera.
-                This is dependent on whether we're looking for accurate perspective, or if we're looking to analyze a selection of a scene.
-
-                If we're looking for accurate perspective, we choose a pinhole camera. The field of view of the camera is given by how close the camera is to the viewing plane (the viewing plane is exactly what we see on the screen).
-
-                If the camera is further away, we minimize the depth of field. On an infinite distance the depth of field is zero, and we have an orthographic camera where the projection view is parallel to the viewing plane.</p>
-
-
-            </div>
-            <div class="mdl-cell mdl-cell&#45;&#45;4&#45;&#45;col">
-
-              <h4> Choosing the angle of the ray</h4>
-
-              <p> If we draw a line from the pinhole to the pixel we're interested in, it forms the beginning of the ray that's already in the direction we want it to go. So if we continue these rays outward into the scene, we can determine what they hit, and therefore what objects are visible directly to the viewer. And all the rays that we trace now all hit the camera, because that's where we started from. We're on our way to a vastly increased efficiency.</p>
-            </div>
-
+        <div class="mdl-tabs__panel is-active" id="slides">
+          <div class="mdl-grid" style="width: 100%; margin: 0">
+            <div class="mdl-grid portfolio-max-width" style="margin-top: 70px;">
+            <h1>Presentation Slides</h1>
+            <embed src="presentation/PHYS_420_Presentation.pdf" type="application/pdf" width="100%" height="900px" />
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="window.open('presentation/PHYS_420_Presentation.pdf', '_blank');"> Download Presentation </button>
           </div>
-
-          <h1> Image Credits </h1>
-
-          <h2> The images used in this presentation are from the following sources: </h2>
-
-          <p>
-            Graphics from the video game Minecraft: <a href="https://wccftech.com/minecraft-rtx-beta-primer-info-impressions/">https://wccftech.com/minecraft-rtx-beta-primer-info-impressions/</a> <br>
-
-            Diffuse (left) versus Specular reflection (right):<a href=" https://en.m.wikipedia.org/wiki/Bidirectional_reflectance_distribution_function"> https://en.m.wikipedia.org/wiki/Bidirectional_reflectance_distribution_function</a> <br>
-
-            Flat shading versus Gouraud shading: <a href="https://electronics.howstuffworks.com/question484.htm">https://electronics.howstuffworks.com/question484.htm</a> <br>
-
-            Phong shading: <a href="https://en.wikipedia.org/wiki/Phong_shading">https://en.wikipedia.org/wiki/Phong_shading</a> <br>
-
-            Different camera models and their field of view: <a href=" https://en.wikipedia.org/wiki/Ray_casting"> https://en.wikipedia.org/wiki/Ray_casting</a> <br>
-
-            Camera local coordinate system with the "screen" in the Z=0 plane: <a href="https://en.wikipedia.org/wiki/Ray_casting">https://en.wikipedia.org/wiki/Ray_casting</a> <br>
-
-            Caustics produced by a water glass: <a href="https://en.wikipedia.org/wiki/Caustic_(optics)">https://en.wikipedia.org/wiki/Caustic_(optics)</a> <br>
-
-          </p>
         </div>
+        </div>
+        <div class="mdl-tabs__panel" id="speakernotes">
+          <div class="mdl-grid portfolio-max-width" style="width: 70%">
+            <div class="mdl-grid portfolio-max-width" style="margin-top: 70px;">
+              <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">Speaker Notes</h2>
+              </div>
+              <div class="mdl-grid portfolio-copy">
+                <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Introduction</h3>
+                <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                  <p> The following notes are included below in the order they appear in the presentation. Not every slide will have something extra accompanied below. You can think of the notes below as the speaker notes for the presentation, as they'll be useful for understanding the presentation slides if you want to come back to them later or give the presentation yourself.</p>
+                </div>
+                <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Physics of Light</h3>
+
+                <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                  <p> Light is both a particle and a wave. Here, we care most about light as a particle. Focusing on the particle aspect of light is important because it allows us to model light as a ray. We'll get to this later.</p>
+                  <p> A light particle - a photon - has two key characteristics that are important to us:
+                    It has a wavelength, which determines its colour, and it has a direction, which determines where it goes. </p>
+                </div>
+                <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Reflection of Light</h3>
+                <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                  <p> Note that we're not discussing refraction here. Refraction is the bending of light as it passes from one medium to another. Reflection is the bouncing of light off a surface. We have two types of reflection: diffuse and specular. Diffuse reflection is the reflection of light from a surface that is not smooth. For example, if we shine a laser on a wall, the light is scattered in all directions. We can see the laser on the wall even if we're not at the same angle as the laser. This is diffuse reflection.  The overall interaction of light on a given surface is a combination of diffuse and specular reflection inherent in the material properties of the surface. </p>
+                </div>
+
+                <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Reflection: Mathematically</h3>
+
+                <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                  <p> We have the angle of incidence and the angle of reflection. When we consider an arbitrary surface, the angle of incidence is the angle between the normal of the surface and the direction of the incoming light. The angle of reflection is the angle between the normal of the surface and the direction of the reflected light. Based on the law of reflection, we can say that the angle of incidence is equal to the angle of reflection. </p>
+
+                  <p> The normal of a surface is just a vector that is perpendicular to the surface. It's simple to find for objects such as a sphere, where the normal is just the vector from the center of the sphere to the point on the surface (but pointed away from the sphere). For a plane, the normal is just the vector that is perpendicular to the plane. </p>
+
+                  <p> So, for a cube, the normal will be the same for all places on one face of a cube, and it'll be facing away from the cube.</p>
+                </div>
+
+                <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Scene Geometry</h3>
+
+                <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                  <p> If we want to go from tracing a single ray to performing actions on an entire scene of objects, we need to be able to represent the scene in a way that we can easily manipulate.
+
+                    We can do this by representing the scene as a collection of objects, each with a position, a size, and a colour.
+                    We also have a floor that these objects are sitting on.
+
+                    To view the scene we're looking at today, navigate to <a href="demoswitcher.html">WebGL Demonstrations</a> and select the "Scene Geometry" demo. Here, you can view the scene that we've recreated in real life and interact with it.
+                  </p>
+                </div>
+
+                <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">A Simple Approach to Shading</h3>
+
+                <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                  <p> From where the light source is and the face of the object that's being lit up, we can determine the angle of incidence between the light source and the face of the object.
+
+                    A simple approach is to just make the object brighter the smaller the angle of incidence is.
+
+                    This means that if a face is barely visible to the light source, it won't be as bright as a face that's directly facing the light source.
+
+                    If we break up our object into a grid of squares, we can then determine the colour of each square by determining the angle of incidence between the light source and the normal of the square.
+
+                    Of course, we're ignoring so much here - the fact that light is reflected off of the object, the fact that we might have both diffuse and specular reflection, and much more. But this is a good start.
+
+                    We can improve this model by smoothing out the colour of the object by averaging the colour of the squares that are adjacent to each other. This is called Gouraud shading.
+                  </p>
+                </div>
+
+                <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">A caveat before moving on to tracing rays</h3>
+
+                <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                  <p> I've mentioned a few different names for the types of shading we've discussed so far. These names aren't really important - you don't have to memorize them, but I want to mention them because they're used in the literature if you want to learn more about these topics. For reference, Phong shading is the standard shading model that's used widely in computer graphics, especially in video games as it can be done in real time (as you can see in the demo). </p>
+                </div>
+
+                <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Real Life Demonstration</h3>
+
+                <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                  <p> Let's see what a ray trace would look like in real life using the same scene as before, this time using the real-life scene as a reference.
+                    We'll see why we're using our real life demonstration to trace the rays to begin with in a moment.
+
+                    If we start with a single light ray - a laser - we see that the light is reflected off of the objects, using both diffuse and specular reflection. The light rays travel until they either hit the camera, get absorbed, or exit the scene.
+
+                    If we move to a point light source - a flashlight - the scene is fully lit up, and we have tons of light rays bouncing around the scene. This, of course, generates an accurate depiction of the scene (but it's real life, so of course it's accurate)
+                  </p>
+                </div>
+
+                <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Outwards from the camera</h3>
+
+                <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                  <p> We first need to take a look at how we're representing our camera.
+                    This is dependent on whether we're looking for accurate perspective, or if we're looking to analyze a selection of a scene.
+
+                    If we're looking for accurate perspective, we choose a pinhole camera. The field of view of the camera is given by how close the camera is to the viewing plane (the viewing plane is exactly what we see on the screen).
+
+                    If the camera is further away, we minimize the depth of field. On an infinite distance the depth of field is zero, and we have an orthographic camera where the projection view is parallel to the viewing plane.</p>
+                </div>
+
+                <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Choosing the angle of the ray</h3>
+
+                <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                  <p> If we draw a line from the pinhole to the pixel we're interested in, it forms the beginning of the ray that's already in the direction we want it to go. So if we continue these rays outward into the scene, we can determine what they hit, and therefore what objects are visible directly to the viewer. And all the rays that we trace now all hit the camera, because that's where we started from. We're on our way to a vastly increased efficiency.</p>
+                </div>
+
+                <h2 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Image Credits</h2>
+
+                <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                <p>
+                  The images in this presentation are from the following sources:
+                  <br>
+                  <br>
+                </p>
+                <p>
+                  Graphics from the video game Minecraft: <a href="https://wccftech.com/minecraft-rtx-beta-primer-info-impressions/">https://wccftech.com/minecraft-rtx-beta-primer-info-impressions/</a> <br>
+
+                  Diffuse (left) versus Specular reflection (right):<a href=" https://en.m.wikipedia.org/wiki/Bidirectional_reflectance_distribution_function"> https://en.m.wikipedia.org/wiki/Bidirectional_reflectance_distribution_function</a> <br>
+
+                  Flat shading versus Gouraud shading: <a href="https://electronics.howstuffworks.com/question484.htm">https://electronics.howstuffworks.com/question484.htm</a> <br>
+
+                  Phong shading: <a href="https://en.wikipedia.org/wiki/Phong_shading">https://en.wikipedia.org/wiki/Phong_shading</a> <br>
+
+                  Different camera models and their field of view: <a href=" https://en.wikipedia.org/wiki/Ray_casting"> https://en.wikipedia.org/wiki/Ray_casting</a> <br>
+
+                  Camera local coordinate system with the "screen" in the Z=0 plane: <a href="https://en.wikipedia.org/wiki/Ray_casting">https://en.wikipedia.org/wiki/Ray_casting</a> <br>
+
+                  Caustics produced by a water glass: <a href="https://en.wikipedia.org/wiki/Caustic_(optics)">https://en.wikipedia.org/wiki/Caustic_(optics)</a> <br>
+
+                </p>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
+        <div class="mdl-tabs__panel" id="lessonplan">
+          <div class="mdl-grid portfolio-max-width" style="width: 70%">
+            <div class="mdl-grid portfolio-max-width" style="margin-top: 70px;">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Lesson Plan</h2>
+            </div>
+            <div class="mdl-grid portfolio-copy">
+              <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Preparation</h3>
+              <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                <p>
+                  Prior to the presentation, the following materials should be prepared in addition to the traditional presentation materials:
+                  <br>
+                  <br>
+                  <ul>
+                <li>
+                  <p> A computer that supports WebGL 2.0. Make sure you can run the demonstrations outlined in the <a href="demoswitcher.html">demo switcher</a> page. </p>
+                </li>
+                <li>
+                  <p> A laser pointer, and a light source such as a flashlight. </p>
+                </li>
+                <li>
+                  <p>A real-life scene that is the reference for the WebGL scene (see the <a href="howto.html">How To</a> page for how to build this)</p>
+                </li>
+                <li>
+                  <p> A projector, or a large screen that can be used to display the WebGL scene. Students can view the demonstration themselves using their own devices, but it is recommended that the demonstration be displayed on a large screen so that the entire class can see it. </p>
+                </li>
+              </ul>
+                </p>
+              </div>
+
+              <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Presentation Tips</h3>
+              <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                <p>
+                  Here's some tips that will help with the presentation:
+                  <br>
+                  <br>
+                <ul>
+                  <li>
+                    <p> The primary takeaway from the presentation should be that the goal of shading is to accurately represent a real-life scene. As such, some time should be dedicated to the physics principles that govern light in real life. I've found that for students to want to pay attention to this part, they need to understand why we're trying to recreate a real-life scene in the first place (video games, movies, etc). Emphasis on the hook of the presentation. </p>
+                  </li>
+                  <li>
+                    <p> The presentation should be interactive. Students should be able to see the demonstration on a large screen, and they should be able to interact with the demonstration themselves. If available, it may be helpful to book a laptop or tablet cart for the class. </p>
+                  </li>
+                  <li>
+                    <p> Give ample time for the Phong shading demonstration, as it's the most realistic hands-on demonstration and will likely be the most interesting. </p>
+                  </li>
+                <li>
+                  <p>
+                    At the end, when talking about the benefits of ray tracing, emphasize the importance of accuracy in calculating the ray's path. The ray tracing demonstration is a good example of this, as the noise in the image is a result of the inaccuracy of the ray's path. </p>
+                  </p>
+                </li>
+                </ul>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+      <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">Ashtan Mistal. Created for PHYS 420. </div>
+        </div>
+        <div class="mdl-mini-footer__right-section">
+          <ul class="mdl-mini-footer__link-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="slides.html">Presentation Slides</a></li>
+            <li><a href="howto.html">How-To Guide</a></li>
+            <li><a href="demoswitcher.html">WebGL Demonstrations</a></li>
+            <li><a href="about.html">About Me</a></li>
+          </ul>
+        </div>
+      </footer>
     </div>
   </main>
 </div>

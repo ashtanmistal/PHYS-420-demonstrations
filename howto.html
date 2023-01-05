@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>WebGL Demos</title>
+  <title>Design and Construction</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -35,7 +35,7 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">How To Make The Demo</span>
+      <span class="mdl-layout-title">Design and Construction</span>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -43,7 +43,7 @@
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="index.html">Home</a>
       <a class="mdl-navigation__link" href="slides.html">Presentation Slides</a>
-      <a class="mdl-navigation__link" href="howto.html">How-To Guide</a>
+      <a class="mdl-navigation__link" href="howto.html">Design and Construction</a>
       <a class="mdl-navigation__link" href="demoswitcher.html">WebGL Demonstrations</a>
       <a class="mdl-navigation__link" href="about.html">About Me</a>
     </nav>
@@ -52,9 +52,9 @@
   <main class="mdl-layout__content">
     <div class="page-content">
 
-      <div class="mdl-grid portfolio-max-width" style="width: 100%;">
+      <div class="mdl-grid portfolio-max-width" style="width: 80%;">
         <div class="mdl-card__title">
-          <h2 class="mdl-card__title-text">How To Make The Demo</h2>
+          <h2 class="mdl-card__title-text">Design and Construction</h2>
         </div>
 
         <div class="mdl-grid portfolio-copy">
@@ -62,35 +62,67 @@
           <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
             <p>
             Let's go through how the hands-on demo, the one that was created using wood and felt, was created.
-            We'll go over both the actual schematic as well as a generalized approach to creating a demo similar to this one.
+            We'll go over both the actual schematic and a generalized approach to creating a demo similar to this one.
             </p>
             <p>
-            <!-- TODO add the content -->
+            The following materials were used in construction of the demo:
+              <ul>
+            <li>Wooden blocks</li>
+            <li>Wooden board (for the base)</li>
+                <li>Black felt with adhesive backing</li>
+                <li>Hot Glue</li>
+                <li>Aluminum tape</li>
+            <li> Nails, for connecting blocks to base</li>
+          </ul>
+            <br><br>
+            All the wooden blocks were of the same length, width, and height. This makes it easier to add the blocks to the WebGL scene, as well as to the demo, as we only have one object type to work with.
+            It also makes it such that the math for the reflection is all the same - given they're all cubes, which simplifies the math should details be added to the presentation.
+            <br><br>
+            The size of the wooden base is not important, as long as it is large enough to hold all the blocks.
+            For the demo, the base was 39 by 77 cm, which is reflected in the WebGL code (see below).
+            Each block was 3.6 cm by 3.6 cm by 3.6 cm. Again, the size of the blocks is not important.
+            The only thing that matters in construction of the hands-on demonstration is that it matches what is in the WebGL scene (and cubes are the easiest to work with).
+            <br><br>
+            When deciding the layout of the scene, it's important to think of where the light source will be, and creating something that will look visually appealing from that.
+            Even if the light source changes position, if the scene is set up in an interesting way, it will still look good.
+            If enough blocks are used, re-creating landscapes, buildings, or other objects is possible and is an excellent extension to the demo.
+            <br><br>
+            The black felt was used to cover the wooden base before adding the wooden blocks. This felt was intended to reduce light reflections off of the base to emphasize the blocks themselves.
+            Some felt was placed on the wooden blocks as well, to reduce light reflections off of some blocks to add more contrast to the scene.
+            Other blocks were covered in aluminum tape to create a mirror-like surface (although without it being a perfect mirror, it had much more of a matte finish).
+            The rest of the blocks were left as-is. This was done to create a variety of surfaces for the light to reflect off of.
+            <br><br>
+            The blocks were then nailed to the base in a precise fashion - aligned with the grid and the same as is set up in the WebGL scene.
+            The grid was drawn on the other side of the base, so that the blocks could be aligned with it.
+            A nail was placed and hit in the center of where each block would be, which was lined up with the center of the block itself.
+            Just using a ruler and then hot glue is an alternative method to this, but it is not as precise.
             </p>
+            <hr>
           </div>
           <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline" id="webgl-demos">WebGL Demos</h3>
           <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
             <p>
             Let's go through how the WebGL demos were created.
-            We'll primarily outline the steps taken to create the WebGL demos, but if you want to see the actual code for the demos themselves,
+            We'll primarily outline the steps taken to create the WebGL demos, but if you want to see more of the actual code for the demos themselves,
             as well as corresponding comments and documentation, you can view the code on <a href="https://github.com/ashtanmistal/PHYS-420-raytracing-demo">GitHub</a>.
             </p>
             <p>
             <br>
             </p>
-              <h4> Setting up the Scene</h4> <!-- add an id to this -->
+              <h4 id="scene-setup"> Setting up the Scene</h4> <!-- add an id to this -->
               <p>
                 First, we set up the html file that will contain the WebGL demo.
                 This file will contain the canvas element that will contain the WebGL demo, as well as the scripts that set up the canvas, WebGL language, various object loaders, and the demo itself.
                 The demo itself is contained in <code>main.js</code> for all of the demos.
+                <br><br>
                 Let's take a closer look at this javascript file.
-                We won't go into many details here, but we'll go over the general structure of the file.
                 Looking at this will allow us to see how the WebGL demo is set up, as well as how to modify the demo to add different objects and change their positions and other properties.
 
                 <br>
+                <br>
 
                 First, after calling <code>setup()</code>, we load the textures we're using for the demo using <code> THREE.TextureLoader().load( 'texture.png' )</code>, where <code>texture.png</code> is the name of the texture file.
-                For all of the textures that we've loaded, we want to be able to control how they interact with the light in the scene.
+                For all the textures we've loaded, we want to be able to control how they interact with the light in the scene.
                 Each lighting model will need slightly different components for what they need to be able to interact with the light.
                 Let's look at Phong shading, considering that the geometry demo does not have any shading, and the ray traced scene was rendered in Blender.
                 We set the values using RGB values, where each value is between 0 and 1.
@@ -99,16 +131,17 @@
                 I've also defined constants for the cube size, as well as an offset so that the position for each cube can be set to be the exact center of the cube in a more readable way.
 
                 <br>
+                <br>
 
                 I then define materials for each of the objects in the scene, passing in the uniforms we've defined above.
 
                 Then, we make the skybox so that it's a black background - you can use whatever textures you want for the skybox if you want to try something different.
 
-<br>
+                <br><br>
 
-                We then load the shader files that we need to define for all of the different types of objects in the scene, and then assign the shaders to the materials we've defined using <code> THREE.SourceLoader()</code>.
+                We then load the shader files that we need to define for all the different types of objects in the scene, and then assign the shaders to the materials we've defined using <code> THREE.SourceLoader()</code>.
 
-<br>
+<br><br>
 
                 Next it's time to add the cubes to the scene. We have a lot of them, so I extracted this to its own method, <code>addCubes()</code>.
                 The exact positions of these cubes are dependent on our in-person demo, so <b> this is the part that you'll need to modify if you want to create a demo similar to ours </b>.
@@ -125,11 +158,140 @@
                 The next thing in the code is the function that checks keyboard input.
                 This provides the functionality of moving the light source around as you see in the demo.
                 Lastly, we define the <code> update()</code> function that will be called every frame, and then we start the animation loop by calling that function.
-
+                <hr>
             </p>
 
-            <h4> Creating the Shader Files</h4> <!-- add an id to this -->
+            <h4 id="create-shader-files"> Creating the Shader Files</h4> <!-- add an id to this -->
 
+            <p>
+              Now that we've seen how the WebGL demo is set up, let's take a look at how the shaders are set up.
+              The shaders are the files that define how the objects in the scene will interact with the light.
+              They are written in GLSL (OpenGL Shading Language), and then loaded into the WebGL demo using <code> THREE.SourceLoader()</code>.
+              They are then assigned to the materials that we've defined in the <code>main.js</code> file.
+              <br><br>
+              The shaders are split into two files, <code>vertex.glsl</code> and <code>fragment.glsl</code>.
+              The vertex shader defines how the vertices of the object will be transformed, and the fragment shader defines how the fragments of the object will be colored.
+
+              <b> Below, the code for the shaders is explained. This isn't needed for setting up the demo and everything explained above is sufficient.</b>
+              <hr>
+              Because we're not transforming vertices in our demo, the vertex shader is very simple - we're just computing and passing on values that are computed at each vertex of the object to the fragment shader.
+              The important value that's calculated here is the normal vector, which is used to calculate the lighting in the fragment shader.
+              <pre style="white-space: pre-wrap; font-family: monospace;">
+              <code>
+out vec2 texCoord; // texture coordinates for that vertex (grabbed from the geometry of the object)
+uniform vec3 spherePosition; // position of the sphere
+
+out vec3 viewPosition; // position of the camera
+
+out vec3 worldPosition; // position of the vertex in world coordinates
+
+out vec3 interpolatedNormal; // normal vector of the vertex
+
+void main() {
+texCoord = uv; // uv is a built-in variable that contains the texture coordinates for the vertex
+
+// viewMatrix is a built-in variable that contains the view matrix
+// we multiply the view matrix by a vector that contains the position of the camera in world coordinates
+// the result is the position of the camera in view coordinates
+viewPosition = vec3(inverse(viewMatrix) * vec4(0.0, 0.0, 0.0, 1.0));
+
+// modelMatrix is a built-in variable that contains the model matrix
+// the model matrix is the matrix that transforms the object from model coordinates to world coordinates
+vec3 modelPosition = vec3(modelMatrix * vec4(position, 1.0));
+
+// we multiply the model matrix by the position of the vertex in model coordinates
+// the result is the position of the vertex in world coordinates
+worldPosition = vec3(modelMatrix * vec4(position, 1.0));
+
+// normal is a built-in variable that contains the normal vector for the vertex, so we just pass this along
+interpolatedNormal = normal;
+
+// projectionMatrix is a built-in variable that contains the projection matrix (the matrix that transforms from view coordinates to clip coordinates)
+// clip coordinates are the coordinates that are used to determine which pixels are visible on the screen
+// gl_position therefore contains the position of the vertex in clip coordinates
+gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+}
+              </code>
+          </pre>
+            <hr>
+              <br><br>
+              In the fragment shader, what we do depends largely on the lighting model we're using.
+              For the geometry demo, we're not using any lighting, so we just set the color of the fragment to be the color of the texture.
+            <pre style="white-space: pre-wrap; font-family: monospace;">
+            <code>
+uniform sampler2D texture; // texture for the object
+in vec2 texCoord; // texture coordinates for the fragment
+
+void main() {
+gl_FragColor = texture2D(texture, texCoord); // set the color of the fragment to be the color of the texture at the texture coordinates
+}
+              </code>
+          </pre>
+            <hr>
+              <br><br>
+              For the Phong shading demo, we're using the Phong lighting model. This means that calculating the color of the fragment is a bit more complicated.
+            <pre style="white-space: pre-wrap; font-family: monospace;">
+            <code>
+// Textures are passed in as uniforms
+uniform vec3 ambientColor; // ambient color of the object
+uniform float kAmbient; // ambient coefficient of the object
+
+uniform vec3 diffuseColor; // diffuse color of the object
+uniform float kDiffuse; // diffuse coefficient of the object
+
+uniform vec3 specularColor; // specular color of the object
+uniform float kSpecular; // specular coefficient of the object
+uniform float shininess; // shininess of the object
+
+uniform mat4 modelMatrix; // model matrix of the object
+
+uniform vec3 spherePosition; // position of the sphere (the light source)
+in vec3 interpolatedNormal; // normal vector of the fragment (computed in the vertex shader)
+in vec3 viewPosition; // position of the camera (computed in the vertex shader)
+in vec3 worldPosition; // position of the fragment in world coordinates (computed in the vertex shader)
+
+in vec2 texCoord; // texture coordinates for the fragment
+uniform sampler2D colorMap; // texture for the object
+
+vec3 calculateAmbient(){
+return ambientColor*kAmbient; // ambient color of the object * ambient coefficient of the object
+}
+
+vec3 calculateDiffuse(vec3 normal, vec3 lightDirection){
+// to calculate the diffuse color, we need to calculate the dot product of the normal vector and the light direction
+// sometimes the dot product is negative, so we need to clamp it to be at least 0
+return diffuseColor*max(0.0, dot(normal, normalize(spherePosition - worldPosition)))*kDiffuse;
+}
+
+vec3 calculateSpecular(vec3 normal, vec3 lightDirection){
+// to calculate the specular color, we need to calculate the dot product of the normal vector and the light direction
+// we use Blinn-Phong approximation of Phong shading, so we need to calculate the halfway vector
+// halfway vector is the vector that points halfway between the light direction and the view direction
+vec3 viewDirection = normalize(viewPosition - worldPosition);
+vec3 halfwayDirection = normalize(lightDirection + viewDirection);
+// and then we calculate the dot product of the normal vector and the halfway vector
+return specularColor*pow(max(0.0, dot(normal, halfwayDirection)), shininess)*kSpecular;
+}
+
+void main() {
+// we calculate the normal vector by transforming the normal vector from model coordinates to world coordinates
+vec3 normal = normalize(mat3(transpose(inverse(modelMatrix))) * interpolatedNormal);
+
+
+vec3 lightDirection = normalize(spherePosition - worldPosition); // light direction is the vector from the fragment to the light source
+
+vec3 out_Ambient = calculateAmbient();
+vec3 out_Diffuse = calculateDiffuse(normal, lightDirection);
+vec3 out_Specular = calculateSpecular(normal, lightDirection);
+
+vec3 out_Color = out_Ambient + out_Specular + out_Diffuse; // the final color of the fragment is the sum of the ambient, diffuse, and specular colors
+
+gl_FragColor = texture(colorMap, texCoord)*vec4(clamp(out_Color, 0.0, 1.0), 1.0); // calculate total color of the fragment
+}
+              </code>
+          </pre>
+            <hr>
+            </p>
             <p><a id="footnote1">1</a> Setting the parent of an object defines the hierarchical relationship between objects in the scene. Setting the parent of the cube to the world frame means that the cube's position and orientation will be relative to the world frame, (as opposed to setting the parent as another object, which would mean that the cube's position and orientation would be relative to that object and so will move with that object). </p>
           </div>
         </div>
@@ -143,6 +305,8 @@
             <ul>
               <li><a href="#hands-on-demo">Hands-On Demo</a></li>
               <li><a href="#webgl-demos">WebGL Demos</a></li>
+              <li><a href="#scene-setup">Scene Setup</a></li>
+              <li><a href="#create-shader-files">Creating the Shader Files</a></li>
             </ul>
           </div>
         </div>
