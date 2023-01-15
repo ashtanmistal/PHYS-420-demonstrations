@@ -19,7 +19,7 @@
 \title{Ray Tracing and an Introduction to Shading}
 \author{Ashtan Mistal}
 % \institution{University of British Columbia}
-\date{\today}
+\date{University of British Columbia}
 
 \begin{document}
 
@@ -38,16 +38,60 @@
   \end{frame}
 
   \begin{frame}
+    \frametitle{What makes an image?}
+    \begin{itemize}
+      \item Lighting conditions
+      \item Scene geometry
+      \item Surface properties
+      \item Camera type and placement
+    \end{itemize}
+
+  \end{frame}
+
+  \begin{frame}
 
     % include a picture of some cool graphics
     \begin{figure}
       \centering
-      \includegraphics[width=0.8\textwidth]{minecraft.jpg}
-      \caption{Graphics from the video game \textit{Minecraft}}\label{fig:minecraft}
+      \includegraphics[width=\textwidth]{minecraft.jpg}
+      \caption{Graphics from \textit{Minecraft}}\label{fig:minecraft}
+
+      What kinds of lighting and graphics effects do you see in this image?
     \end{figure}
     % By the end of this presentation, we'll have a better understanding of how these graphics are generated
     % We'll also go over some of the math behind it, which will help you build your own graphics scenes
   \end{frame}
+
+  \begin{frame}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\textwidth]{cars.png}
+      \caption{Graphics from the movie \textit{Cars}}\label{fig:cars}
+
+      What about this image?
+      % global illumination techniques
+      % ambient occlusion
+      % depth of field
+    \end{figure}
+    % By the end of this presentation, we'll have a better understanding of how these graphics are generated
+    % We'll also go over some of the math behind it, which will help you build your own graphics scenes
+  \end{frame}
+
+  \begin{frame}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\textwidth]{lastofuspart2.png}
+      \caption{Graphics from \textit{The Last of Us Part II}}\label{tlou2}
+
+      What about this image?
+      % subsurface scattering in the skin
+      % translucency in the hair
+      % realistic light interactions with cloth
+    \end{figure}
+  \end{frame}
+
+
+
 
   \begin{frame}
     \frametitle{Physics of Light}
@@ -92,12 +136,11 @@
           \theta_i = \theta_r
         \]
       \end{itemize}
-      \item Surface normals:
+      \item Surface normals: A vector perpendicular to the surface.
 
-      The normal of the surface is just a vector that is perpendicular to the surface.
-      The mathematical details of how to find the normal for any surface aren't important for us today.
+      \includegraphics[width = 0.9 \textwidth]{reflection.png}
 
-      We'll focus on simple objects.
+      \caption{\tiny{Image Credit: Leonid Sigal, CPSC 425 Lecture Slides}}
       % But, if we want to find the normal of a simple surface such as a cube or a sphere, we can use the following formula:
 
       % make a table with the formula for the normal of a cube and a sphere
@@ -133,12 +176,20 @@
 
   \begin{frame}
     \frametitle{Tracing light through an object}
-    Let's start with a simple case, with no diffuse reflection.
+    Let's start with a point light source interacting with a mirror.
 
     If I want to trace the light from a light source to a point on a surface, I can do so by first finding the direction of the light.
     This is pretty arbitrary, as point light sources scatter in all directions.
     So, we can just pick one.
     Let's call this our ray.
+
+    \includegraphics[width = \textwidth]{lt1.png}
+
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Tracing light through an object - continued}
+
 
     % draw a diagram of a ray from a light source in a random direction
     % \begin{tikzpicture}
@@ -149,6 +200,8 @@
     % \end{tikzpicture}
 
     I then want to follow that ray until it hits a surface.
+
+    \includegraphics[width = \textwidth]{lt2.png}
 
     % \begin{tikzpicture}
     %     % light source is just a sphere at the origin
@@ -177,27 +230,47 @@
     %     \draw[->, thick] (1, 0) -- (1, 1);
     % \end{tikzpicture}
 
+    \includegraphics[width = \textwidth]{lt3.png}
+
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Tracing light through an object - continued}
+
     I then want to find the angle of incidence between the normal and the ray, and then bounce the ray off the surface according to the law of reflection.
 
-    % draw the reflected ray in a different colour
-    % \begin{tikzpicture}
-    %     % light source is just a sphere at the origin
-    %     \draw[fill=black] (0,1) circle (0.1);
-    %     % draw a ray pointing in a random direction
-    %     \draw[->, thick] (0, 1) -- (1, 0);
-    %     % draw a cube at (1, 0)
-    %     \draw[fill=black] (1, 0) cube (1);
-    %     % draw the normal of the surface at the point of intersection
-    %     \draw[->, thick] (1, 0) -- (1, 1);
-    %     % draw the reflected ray
-    %     \draw[->, thick, color=red] (1, 0) -- (0, 1);
-    % \end{tikzpicture}
+    \includegraphics[width = \textwidth]{lt4.png}
+
+  \end{frame}
+
+  % draw the reflected ray in a different colour
+  % \begin{tikzpicture}
+  %     % light source is just a sphere at the origin
+  %     \draw[fill=black] (0,1) circle (0.1);
+  %     % draw a ray pointing in a random direction
+  %     \draw[->, thick] (0, 1) -- (1, 0);
+  %     % draw a cube at (1, 0)
+  %     \draw[fill=black] (1, 0) cube (1);
+  %     % draw the normal of the surface at the point of intersection
+  %     \draw[->, thick] (1, 0) -- (1, 1);
+  %     % draw the reflected ray
+  %     \draw[->, thick, color=red] (1, 0) -- (0, 1);
+  % \end{tikzpicture}
+
+  \begin{frame}
+    \frametitle{Tracing light through an object - continued}
 
     We can then move on to the next surface - whatever the light is heading towards next - and repeat the process.
 
+    \includegraphics[width = \textwidth]{lt5.png}
+
     This process of casting a ray from a light source to a surface and determining where it first hits a surface is called ray casting.
 
-    That object that it hits first is the object that is going to be visible to the light source.
+  \end{frame}
+
+  \begin{frame}{Where the light ends up}
+    \includegraphics[width = 0.8 \textwidth]{lt5.png}
+    Once the light hits the camera, we now know the path of the light up until it hits the camera. The object that it was at immediately before will be visible in our scene.
 
   \end{frame}
 
@@ -213,7 +286,9 @@
 
     \url{https://phas.ubc.ca/~ashtan/}
 
-    From there, go to "WebGL Demonstration" and click on "Scene Geometry".
+    \hfill
+
+    From there, go to "WebGL Demonstrations" and click on "Scene Geometry".
 
     Here, you can view the scene that we've recreated in real life and interact with it.
 
@@ -229,14 +304,17 @@
 
   \begin{frame}
     \frametitle{Shading}
-    We've figured out how to determine which objects are visible to a light source - meaning, what objects - or faces of objects - are lit up by a light source.
-    Now, we need to figure out how to determine the colour of those objects: how they look when they're lit up.
+    % We've figured out how to determine which objects are visible to a light source - meaning, what objects - or faces of objects - are lit up by a light source.
+    % Now, we need to figure out how to determine the colour of those objects: how they look when they're lit up.
 
     Say we know where the light source is, where we're viewing the object from, and where the object is in space.
 
-    Once light hits an object, reflecting that light off of the object and onto other objects is a bit of a complicated process - let's look at that a bit later.
+    \hfill
 
-    So let's think of ways that we can approximate the colour of an object just knowing what we mentioned above.
+    % Once light hits an object, reflecting that light off of the object and onto other objects is a bit of a complicated process - let's look at that a bit later.
+
+    % So let's think of ways that we can approximate the colour of an object just knowing what we mentioned above.
+    How can we approximate the colour of an object, just knowing what we talked about?
 
   \end{frame}
 
@@ -264,32 +342,64 @@
   \end{frame}
 
   \begin{frame}
-    \frametitle{A Better Approximation} % i.e. phong shading
+    \frametitle{An Equation to Model Light}
+
+    Let's start to build something that we can use to calculate light at a given point.
+
+    \hfill
+
+    It'll be a function, that will be in terms of the angle of the incoming light $(\theta_i, \phi_i)$ and the angle of the camera, i.e. the viewing angle ($\theta_v, \phi_v)$.
+
+    \hfill
+
+    We'll call it the \textbf{Bidirectional Reflection Distribution Function}, or \textbf{BRDF} for short.
+
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Building up the BRD} % i.e. phong shading
 
     We know from our real-life experiences that light is also reflected off of other objects: If we go outside, even if the sun isn't directly shining on us, we can still see other things around us.
     Let's call that "ambient light".
 
-    We also talked about our diffuse and specular reflection before, so we can also take that into account.
+    \hfill
 
-    In order to put diffuse reflection into practice, we can use the same approach as before with our simple model.
+    Ambient light can be approximated in our BRDF with a simple constant representing the amount of ambient light in the scene:
 
-    But specular is where we can take into account the direction of the camera.
-    Only when the camera is in the same direction as the reflected ray will we see specular reflection.
+    $$\boldsymbol{B R D F}() = \alpha_{ambient}$$
+
+  \end{frame}
+
+  \begin{frame}{Building up the BRDF}
+    We talked about diffuse reflection before. We know it only depends on the incoming angle $\theta_i$ - this is called \textbf{Lambert's Cosine Law}:
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.9 \textwidth]{lambert.png}
+    \end{figure}
+
+    $$\boldsymbol{B R D F}\left(\theta_i \right) = \alpha_{ambient} + \alpha_{diffuse} \cos(\theta_i)$$
 
   \end{frame}
 
   \begin{frame}
     \frametitle{A Better Approximation}
 
-    So, we can determine the level of specular reflection using the following formula:
+    Lastly, we just need to add a term that depends on the viewing angle as well to determine the specular component.
 
-    \begin{equation}
-      \text{specular} = \text{max}(\text{dot}(\text{normal}, \text{reflected ray}), 0)^{\text{shininess}}\label{eq:specular}
-    \end{equation}
+    \hfill
 
-    where $\text{normal}$ is the normal of the face, $\text{reflected ray}$ is the reflected ray, and $\text{shininess}$ is a constant that determines how shiny the object is (this changes based on the material of the object).
+    It'll be brighter when the viewing angle is close to the reflected angle, so we have the following:
+
+    $$\boldsymbol{B R D F}\left(\theta_i, \theta_v \right) = \alpha_{ambient} + \alpha_{diffuse} \cos(\theta_i) + \alpha_{specular} \cos^{\beta}(\theta_v)$$
+
+    Here, $\beta$ is the shininess of the object.
+
+    \hfill
+
+    This is for two dimensions. In three dimensions the $\cos()$ terms are replaced by dot products with the normal vector, giving dependence on $\phi$ angles also.
 
   \end{frame}
+
 
   \begin{frame}
     \frametitle{A Better Approximation}
@@ -308,6 +418,17 @@
 
   \end{frame}
 
+  \begin{frame}{Phong Shading in \textit{Half-Life 2}}
+
+    \begin{figure}
+      \centering
+      \includegraphics[width = \textwidth]{halflife2}
+      \caption{Phong shading used in \textit{Half-Life 2}. Note the reflection of the light source on the rocks.}
+      \label{fig:hl2}
+    \end{figure}
+
+  \end{frame}
+
   % \begin{frame}
   %     \frametitle{A Caveat}
 
@@ -322,19 +443,32 @@
   %     \end{itemize}
   % \end{frame}
 
-  \begin{frame}
-    \frametitle{Tracing Rays}
+  \begin{frame}{What's missing in our BRDF?}
 
-    So far, we've been talking about how to determine the colour of an object given the position of the light source and the camera.
+    We now know how to determine the shading of an object given the position of the light source and the camera.
 
-    But we've been ignoring one key physical phenomena - we haven't actually done anything with the light rays that are being reflected off of the object.
+    But we haven't actually done anything \textit{more} with the light rays that are being reflected off of the initial object.
 
-    From what we can see in the Phong shading demo, there aren't any shadows, and the scene doesn't look very realistic.
-    The metallic objects aren't reflecting any of the light that hits them, and it just looks like a gray surface with some texture on it.
+    \begin{figure}
+      \centering
+      \includegraphics[width = 0.8 \textwidth]{lt6.png}
+    \end{figure}
 
-    So, we need to figure out how to trace the light rays that are being reflected off of the object and determine what they hit.
+    So, we need to figure out how to follow the reflected light throughout the scene until it hits our camera.
 
   \end{frame}
+
+  % \begin{frame}
+  %   \frametitle{Tracing Rays}
+
+
+
+  % From what we can see in the Phong shading demo, there aren't any shadows, and the scene doesn't look very realistic.
+  % The metallic objects aren't reflecting any of the light that hits them, and it just looks like a gray surface with some texture on it.
+
+
+
+  % \end{frame}
 
   \begin{frame}
     \frametitle{A Naive Approach}
@@ -366,11 +500,20 @@ for each light source:
   \begin{frame}
     \frametitle{In practice - A simple model}
 
-    Just as we mentioned before that the most simple objects to render are spheres, the most simple scene to render is a scene with only a sphere.
-    So let's take a look at what that looks like.
+    % Just as we mentioned before that the most simple objects to render are spheres, the most simple scene to render is a scene with only a sphere.
+    % So let's take a look at what that looks like.
 
-    We've built up the scene using the algorithm we discussed above.
+    % We've built up the scene using the algorithm we discussed above.
+    Using the algorithm we just discussed, let's render a sphere. Just one object.
+
+    \hfill
+
+
     Play around with the demo by clicking on "Ray Tracing - Sphere".
+
+    \hfill
+
+    (website: \url{https://phas.ubc.ca/~ashtan/})
 
     % Moving the mouse or your finger will move the light source around the scene.
 
@@ -406,12 +549,15 @@ for each light source:
   \begin{frame}
 
     % answer to the previous question
-    We can make a very rough approximation that a light bulb (of around 100 watts) emits $10^{20}$ photons per second.
+    A light bulb (of around 100 watts) emits $10^{20}$ photons per second (and that's \textit{one light source}).
 
-    Regardless of if the actual number is higher or lower, we can see that this is a lot of rays of light.
+    % Regardless of if the actual number is higher or lower, we can see that this is a lot of rays of light.
+    \hfill
 
     And we have to trace the path for \textbf{every} ray of light?
     It's an understatement to say that this is a lot of computation.
+
+    \hfill
 
     We need to find a way to reduce the number of rays of light that we have to trace.
 
@@ -428,11 +574,13 @@ for each light source:
       \item These paths are the same!
     \end{itemize}
 
-    When we have light exiting the scene without hitting the camera, it's a waste of computational power.
+    \hfill
 
-    And, when we consider the size of the camera frame in comparison to the size of the scene, we can see that the probability of a ray of light exiting the scene without hitting the camera is very high.
+    When we have light exiting the scene without hitting the camera, it's a waste of computational power to bother calculating the path of that ray.
 
-    So, we can draw the rays starting from the camera and going outward to the scene.
+    % And, when we consider the size of the camera frame in comparison to the size of the scene, we can see that the probability of a ray of light exiting the scene without hitting the camera is very high.
+
+    % So, we can draw the rays starting from the camera and going outward to the scene.
 
   \end{frame}
 
@@ -476,11 +624,11 @@ for each light source:
   \begin{frame}
     \frametitle{Ray tracing our scene: Putting it into perspective}
 
-    \begin{figure}
-      \centering
-      \includegraphics[width=0.5\textwidth]{ray-tracing-scene.png}
-      \caption{Ray tracing our scene}\label{fig:ray-tracing-scene}
-    \end{figure}
+    % \begin{figure}
+    %   \centering
+    %   \includegraphics[width=0.5\textwidth]{ray-tracing-scene.png}
+    %   \caption{Ray tracing our scene}\label{fig:ray-tracing-scene}
+    % \end{figure}
 
     % this is the same scene as before and as in our real life demonstration
     % point out the shadows to the students
@@ -495,11 +643,14 @@ for each light source:
     We can't actually trace $10^{20}$ rays, of course.
     That'd be crazy.
 
-    With what we talked about before about the field of view, we can see that the number of rays we have to trace is comparatively small.
+    \hfill
+
+    The actual number is comparatively small.
+
+    \hfill
 
     When we choose, say, a 1920x1080 camera frame, we have 2,073,600 pixels - and therefore 2,073,600 rays to trace.
     We can also choose to cast multiple rays per pixel, which will increase the accuracy of the scene.
-    but would be more computationally expensive.
 
     % a 1920x1080 camera frame was exactly what was chosen for our ray tracing demo
     % Put it into perspective for students - this scene has 172 frames and each scene took around a minute to render. That's just under 3 hours of rendering time.
@@ -542,7 +693,7 @@ for each light source:
         \item there are a few de-noising techniques that can be used to reduce the noise
       \end{itemize}
 
-      \item e textures
+      \item Creating textures
 
       \begin{itemize}
         \item This is a complicated computer graphics topic!
@@ -559,9 +710,9 @@ for each light source:
       \item It's a very accurate way of rendering a scene - it can be used to create photorealistic images
       \item It allows us to model complex phenomena, such as soft shadows, volume rendering, and caustics
       \item It's a very flexible rendering technique % - it can be used to render any scene, regardless of the complexity of the scene
-      \end{itemize}
+    \end{itemize}
 
-      But we have to ask - Are these benefits worth the drastically increased computational cost?
+    But we have to ask - Are these benefits worth the drastically increased computational cost?
   \end{frame}
 
 \end{document}
