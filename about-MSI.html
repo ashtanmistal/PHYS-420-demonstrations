@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+<!--  <link rel="manifest" href="/material-components-web-catalog/manifest.json">-->
+  <title>Ashtan Mistal - Physics 420 Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-deep_orange.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#5e4144">
+
+
+</head>
+
+<body>
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">About Me</span>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title"></span> <!--  This is the title of the drawer. I've left it blank for now.-->
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="index.html">Home</a>
+      <a class="mdl-navigation__link" href="slides.html">Presentation Slides</a>
+      <a class="mdl-navigation__link" href="howto.html">How-To Guide</a>
+      <a class="mdl-navigation__link" href="demoswitcher.html">WebGL Demonstrations</a>
+      <a class="mdl-navigation__link" href="about.html">About Me</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <div class="desktop-only mdl-card mdl-shadow--2dp mdl-elevation--z16" style="width: 13%; height: auto; position: fixed; top: 120px; right: 0; margin: 20px; border-radius: 5%;">
+        <img src="AshtanMistal.JPG" alt="Ashtan Mistal" style="box-sizing: content-box; width: 100%; height: auto;">
+        <div class="mdl-card__title">
+          <h2 class="mdl-card__title-text">Ashtan Mistal</h2>
+        </div>
+
+        <div class="mdl-card__actions mdl-card--border">
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.instagram.com/ashtanmistal/">
+            Instagram
+          </a>
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.linkedin.com/in/ashtanmistal/">
+            LinkedIn
+          </a>
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.github.com/ashtanmistal/">
+            GitHub <i class="material-icons">code</i>
+          </a>
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.ashtan.ca">
+            Website <i class="material-icons">web</i>
+          </a>
+        </div>
+      </div>
+      <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+        <div class="mdl-tabs__tab-bar" style="position: fixed; top: auto; width: 100%; background: white; z-index: 2;">
+          <a href="#about" class="mdl-tabs__tab is-active" style="color: black; text-decoration: none; font-size: 14px;">
+            <i class="material-icons">person</i> About</a>
+<!--          <a href="#resume" class="mdl-tabs__tab" style="color: black; text-decoration: none; font-size: 14px;">-->
+<!--            <i class="material-icons">description</i> Resume</a>-->
+          <a href="#contact" class="mdl-tabs__tab" style="color: black; text-decoration: none; font-size: 14px;">
+            <i class="material-icons">contact_page</i> Contact</a>
+          <a href="#projects" class="mdl-tabs__tab" style="color: black; text-decoration: none; font-size: 14px;">
+            <i class="material-icons">construction</i> Projects</a>
+        </div>
+
+        <div class="mdl-tabs__panel is-active" id="about">
+          <div class="mdl-grid portfolio-max-width" style="width: 70%">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">About</h2>
+          </div>
+
+          <div class="mdl-grid portfolio-copy">
+            <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Introduction</h3>
+            <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+              <p>
+                Welcome to my website! My name is Ashtan Mistal, and I am currently a double major in Physics and Computer Science at the University of British Columbia.
+                I am also a teaching assistant for the <a href="https://cs110.students.cs.ubc.ca/admin/team.html">Computer Science 110 course at UBC</a>, an introductory course on systematic program design.
+                Outside of this, I am a residence advisor on campus, where I support residents in their academic and personal development through a variety of programs and events and peer-to-peer support.
+              </p>
+            </div>
+            <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">About Me and My Studies</h3>
+
+            <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+              <p>
+                Throughout my studies, I have developed a passion for computer graphics and computer vision, and this has helped shape some of my personal projects (see Projects tab on this page).
+                Connection with the real world is what drives this interest: Computer graphics allows us to create virtual worlds that are indistinguishable from the real world, and also to simulate complex physical phenomena.
+                The latter provides the forefront of scientific discovery, and is a key component of many of the technologies that we use today.
+
+                Computer vision also provides interaction with the real world - this time in a conceptually opposite way, by allowing us to extract information from the real world through cameras and sensors and making sense of it and using it to make decisions.
+
+                Both of these allow for greater integration and connection between the virtual and real worlds, and I am excited to see where this will go in the future.
+              </p>
+              <p><br></p>
+              <p>
+                Taking a combination of both Physics and Computer Science has allowed me to develop a strong foundation in both fields and also begin to understand the slice of knowledge that is the intersection between the two.
+                I believe this intersection is where some of the most exciting and impactful research is being done.
+              </p>
+              <p><br></p>
+              <p>
+                In my spare time, I enjoy Tae Kwon Do, music production, digital art, mountain biking, hiking, and thrifting. <!-- Expand on this.-->
+                Vancouver provides the perfect backdrop for all of these activities, and I am always looking for new ways to get outside and experience the city and the surrounding area.
+              </p>
+              <p><br></p>
+              <p>
+                I am always looking for new opportunities to learn and grow, and I am looking forward to seeing where this journey takes me.
+                If you would like to get in touch, please feel free to reach out to me through the Contact page (see Contact tab on this page), whether you have any questions about the website material, or just want to chat.
+                I'd be happy to answer questions if you're interested in any of the topics I've covered, or if you're interested in learning more about my experiences.
+              </p>
+            </div>
+          </div>
+              <div class="mobile-only mdl-card mdl-shadow--2dp" style="width: 100%; margin-top: 30px; max-width: 200px;">
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Ashtan Mistal</h2>
+                </div>
+                <img src="AshtanMistal.JPG" alt="Ashtan Mistal" style="box-sizing: content-box; width: 100%; height: auto;">
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.instagram.com/ashtanmistal/">
+                    Instagram
+                  </a>
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.linkedin.com/in/ashtanmistal/">
+                    LinkedIn
+                  </a>
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.github.com/ashtanmistal/">
+                    GitHub <i class="material-icons">code</i>
+                  </a>
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.ashtan.ca">
+                    Website <i class="material-icons">web</i>
+                  </a>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="mdl-tabs__panel" id="contact">
+          <div class="mdl-grid" style="width: 70%; margin: 0 auto;">
+            <div class="mdl-cell mdl-cell--12-col" style="margin-top: 70px; width: 99%; z-index: 1; min-height: 700px;">
+              <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Contact</h2>
+                </div>
+                <div class="mdl-card__media">
+                  <img class="article-image" src="art_background.png" alt="" style="width: 100%; height: auto;">
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <p>
+                    You can send me a message through here (clicking Submit will open your default email client), or reach out to me through any of the social media I've linked.
+                    LinkedIn is the best way to get in touch with me regarding professional opportunities.
+                  </p>
+                  <form>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded" data-upgraded=",MaterialTextfield">
+                      <input class="mdl-textfield__input" pattern="[A-Z,a-z, ]*" type="text" id="Name" placeholder="Name">
+                      <label class="mdl-textfield__label" for="Name"></label>
+                      <span class="mdl-textfield__error">Letters and spaces only</span>
+                    </div>
+                    <p><br></p>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded" data-upgraded=",MaterialTextfield">
+                      <textarea class="mdl-textfield__input" type="text" rows="5" id="note" placeholder = "Message"></textarea>
+                      <label class="mdl-textfield__label" for="note"></label>
+                    </div>
+                    <p><br></p>
+
+                      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" data-upgraded=",MaterialButton,MaterialRipple" onclick="function sendEmail() {
+                      let name = document.getElementById('Name').value;
+                      const email = 'ashtanmistal.phys420@gmail.com';
+                      const note = document.getElementById('note').value;
+
+                      if (name === '') {
+                        name = 'PHYS 420 Website Feedback';
+                      } else {
+                        name = name + ' - PHYS 420 Website Feedback';
+                      }
+
+                      const link = 'mailto:' + email + '?subject=' + name + '&body=' + note;
+
+                      window.open(link);
+                      }
+                      sendEmail()">
+                        Submit
+                        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>
+<!--                    </p>-->
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        <div class="mdl-tabs__panel" id="projects">
+          <div class="mdl-grid" style="width: 70%; margin: 0 auto;">
+            <div class="mdl-grid portfolio-max-width" style="margin-top: 70px;">
+              <!-- PHYS 420 Project -->
+              <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+<!--                  <img class="article-image" src=" projects/phys420/img.png" alt="PHYS 420 Project" border="0">-->
+                </div>
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">PHYS 420 Project</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  This website is the culmination of my PHYS 420 project, which is a series of hands-on and virtual demonstrations intended to teach secondary school students the basics of shading in computer graphics, and provide a theoretical basis for ray tracing.
+                  Virtual demonstrations are hosted on the website and are coded in WebGL, and hands-on demonstrations recreated the environment in real life, utilizing light to visualize the "ideal" shading of a surface.
+                  Ray-traced demonstrations were rendered using Blender and Cycles, and the website was coded using HTML, CSS, and JavaScript.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="index.html" data-upgraded=",MaterialButton,MaterialRipple">Read more<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
+                </div>
+              </div>
+              <!-- PHYS 404 Poster -->
+              <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+<!--                  <img class="article-image" src=" projects/phys404/img.png" alt="PHYS 404 Poster" border="0">-->
+                </div>
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Numerical Methods in Radiation Room Shielding</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  Researched methods of Monte Carlo numerical approximation of particle interactions to determine the shielding effectiveness of a treatment room in a radiation therapy clinic. Discussed practicality of these methods and their limitations based on hardware constraints and applicability to the problem at hand.
+                  Compiled into a poster for the PHYS 404 class of 2022 at UBC.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="projects/phys404/index.html" data-upgraded=",MaterialButton,MaterialRipple">Read more<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
+                </div>
+              </div>
+              <!-- PHYS 319 Project -->
+              <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+<!--                  <img class="article-image" src=" projects/phys319/phys319.png" alt="PHYS 319 Project" border="0">-->
+                </div>
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Monophonic Synthesizer</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  Designed and built a monophonic synthesizer using the MSP 430 microprocessor as part of a laboratory course in electronics, PHYS 319.
+                  Utilized knowledge of digital electronics, microcontrollers, and audio synthesis techniques to implement the synthesizer, and created custom firmware for the MSP 430 to generate and manipulate audio signals in real-time.
+                  Developed understanding of circuitry, microcontroller programming, and audio synthesis techniques, and their applications.
+                  Built a button-based user interface using a breadboard to control the synthesizer.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="projects/phys319/index.html" data-upgraded=",MaterialButton,MaterialRipple">Read more<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
+                </div>
+              </div>
+              <!-- CPSC 304 Project -->
+              <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+<!--                  <img class="article-image" src=" projects/cpsc304/img.png" alt="CPSC 304 Project" border="0">-->
+                </div>
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Sports Team Database Management System</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  Built a database management system for a sports team using Oracle SQL and Java as part of a course in database management, CPSC 304.
+                  Designed and implemented a database schema to store information about the team, including players, coaches, and games, as well as the ability to assign jobs to players and coaches among other tasks related to team management.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://github.com/ashtanmistal/sports-team-manager" data-upgraded=",MaterialButton,MaterialRipple">View GitHub Page<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
+                </div>
+              </div>
+              <!-- CPSC 210 Project -->
+              <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+<!--                  <img class="article-image" src=" projects/cpsc210/img.png" alt="CPSC 210 Project" border="0">-->
+                </div>
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Rexfro</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  Rexfro (Regex Find and Replace Operator) is a Java Swing application that enables the user to perform an arbitrary number of different regex find-and-replace operations on multiple plain text documents at once, accelerating document conversion and translation in a user-friendly layout.
+                  This enables a much more efficient workflow for certain repetitive tasks that regular expressions are well-suited for, and enabling sequential find-and-replace operations to be performed in a single pass provides an extra dimension of workflow efficiency.
+                  Designed and implemented the user interface using Java Swing, and wrote the core functionality in Java.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://github.com/ashtanmistal/rexfro" data-upgraded=",MaterialButton,MaterialRipple">View GitHub Page<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
+                </div>
+              </div>
+              <!-- Ongoing: Markdown Notes Project -->
+              <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+<!--                  <img class="article-image" src=" projects/mdn/mdn.png" alt="Markdown Notes Project" border="0">-->
+                </div>
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Markdown Notes Project</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  An in-progress web application that allows users to create and edit notes using Markdown syntax.
+                  The UI is designed for ease of use and efficiency, and the notes are stored in a database for easy access and editing.
+                  It is inspired by the layout of the notetaking app Google Keep, and the Markdown syntax allows for more complex formatting than a simple text editor.
+                  It also enables the user to input LaTeX math equations, which are rendered using MathJax.
+                  The UI is built using AngularJS and the backend is built using Node.js and Express.
+                  Overall, the project is intended to be a useful tool for taking notes and writing documents in a STEM academic environment.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="projects/mdn/index.html" data-upgraded=",MaterialButton,MaterialRipple">Read more<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
+                </div>
+              </div>
+              <!-- Ongoing: Ray Traced Audio Reverberation Project -->
+              <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+<!--                  <img class="article-image" src=" projects/rta/rta.png" alt="Ray Traced Audio Reverberation Project" border="0">-->
+                </div>
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Ray Traced Audio Reverberation Project</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  Still in the research phase, this project is intended to be a proof-of-concept for a new method of audio reverberation using ray tracing.
+                  Such a method allows for a highly realistic simulation of the acoustic environment, and has the potential to be used in a variety of applications, such as virtual reality, in the music industry, and in the field of architectural acoustics.
+<!--                  The project will explore tradeoffs dependent on the interactions between air molecules as they are simulated, and as such will model the acoustic environment similarly to Monte Carlo methods of particle simulation (see the Numerical Methods in Radiation Room Shielding project for more details on this).-->
+                  Based on the level of interactions between air molecules as they travel through a real environment, this project will model the acoustic environment similarly to Monte Carlo methods of particle simulation (see the Numerical Methods in Radiation Room Shielding project for more details on this).
+<!--                  Implementations of a simpler complexity will be gathered into a software instrument for use in music production, with more complex implementations intended for research purposes.-->
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="projects/rta/index.html" data-upgraded=",MaterialButton,MaterialRipple">Read more<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
+                </div>
+              </div>
+              <!-- Ongoing: LiDAR Point Cloud Processing Project -->
+              <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+<!--                  <img class="article-image" src=" projects/lpc/lpc.png" alt="LiDAR Point Cloud Processing Project" border="0">-->
+                </div>
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">LiDAR Point Cloud Processing Project</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  A sister in-progress project to the Ray Traced Audio Reverberation Project, this project transforms LiDAR data to a point cloud, and then uses the point cloud to generate a 3D model of the environment.
+                  This 3d model of the environment will allow us to set the reflective properties of materials throughout the environment, and then use the ray tracing method to simulate the acoustic environment.
+                  This allows a user to efficiently gather the data needed to simulate the acoustic environment, and then use the simulation to determine the best placement of sound absorbing materials.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="projects/lpc/index.html" data-upgraded=",MaterialButton,MaterialRipple">Read more<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="mobile-only mdl-card mdl-shadow--2dp" style="width: 100%; margin-top: 30px; max-width: 200px;">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Ashtan Mistal</h2>
+            </div>
+            <img src="AshtanMistal.JPG" alt="Ashtan Mistal" style="box-sizing: content-box; width: 100%; height: auto;">
+            <div class="mdl-card__actions mdl-card--border">
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.instagram.com/ashtanmistal/">
+                Instagram
+              </a>
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.linkedin.com/in/ashtanmistal/">
+                LinkedIn
+              </a>
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.github.com/ashtanmistal/">
+                GitHub <i class="material-icons">code</i>
+              </a>
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.ashtan.ca">
+                Website <i class="material-icons">web</i>
+              </a>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">Ashtan Mistal. Created for PHYS 420. </div>
+        </div>
+        <div class="mdl-mini-footer__right-section">
+          <ul class="mdl-mini-footer__link-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="slides.html">Presentation Slides</a></li>
+            <li><a href="howto.html">How-To Guide</a></li>
+            <li><a href="demoswitcher.html">WebGL Demonstrations</a></li>
+            <li><a href="about.html">About Me</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </main>
+</div>
+</body>
+</html>
