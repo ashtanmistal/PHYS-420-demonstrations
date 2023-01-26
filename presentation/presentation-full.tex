@@ -16,7 +16,7 @@
 \pgfplotsset{compat=1.18}
 \usepackage{blindtext}
 
-\title{Ray Tracing and an Introduction to Shading}
+\title{A Physics-based Introduction to Computer Shading Techniques}
 \author{Ashtan Mistal}
 % \institution{University of British Columbia}
 \date{University of British Columbia}
@@ -36,6 +36,31 @@
       \item Putting it into perspective + optimization
     \end{itemize}
   \end{frame}
+
+  \begin{frame}
+    \frametitle{About Me}
+    \begin{columns}
+      \begin{column}{0.6\textwidth}
+        \begin{itemize}
+          \item 4th year physics and computer science student at UBC
+          \item Specializing in computer graphics and computer vision
+          \item Outside of school: digital art, music production, and rock climbing
+          \item Teaching assistant for CPSC 110, an introductory programming course
+          \item Residence Advisor in upper year residence
+        \end{itemize}
+      \end{column}
+      \begin{column}{0.4\textwidth}
+        \begin{figure}
+          \centering
+          \includegraphics[width=\linewidth]{AshtanMistal.jpg}
+          \caption{Ashtan Mistal}\label{fig:me}
+        \end{figure}
+      \end{column}
+    \end{columns}
+  \end{frame}
+
+
+
 
   \begin{frame}
     \frametitle{What makes an image?}
@@ -276,23 +301,25 @@
 
   \begin{frame}
     \frametitle{Scene Geometry}
-
-    % If we want to go from tracing a single ray to performing actions on an entire scene of objects, we need to be able to represent the scene in a way that we can easily manipulate.
-
-    % We can do this by representing the scene as a collection of objects, each with a position, a size, and a colour.
-    % We also have a floor that these objects are sitting on.
-
-    To view the scene we're looking at today, navigate to the following website:
-
-    \url{https://phas.ubc.ca/~ashtan/}
-
-    \hfill
-
-    From there, go to "WebGL Demonstrations" and click on "Scene Geometry".
-
-    Here, you can view the scene that we've recreated in real life and interact with it.
-
+    \begin{columns}
+      \begin{column}{0.6\textwidth}
+        \begin{itemize}
+          \item We can represent the scene as a collection of objects, each with a position, size, and color.
+          \item We also have a floor that these objects are sitting on.
+          \item From the website linked in the QR code, navigate to "WebGL Demonstrations" and click on "Scene Geometry"
+          \item Here, you can view the scene that we've recreated in real life and interact with it.
+        \end{itemize}
+      \end{column}
+      \begin{column}{0.4\textwidth}
+        \begin{figure}
+          \centering
+          \includegraphics[width=\linewidth]{qr.png}
+          \caption{\url{https://phas.ubc.ca/~ashtan/}}
+        \end{figure}
+      \end{column}
+    \end{columns}
   \end{frame}
+
 
   %     \begin{itemize}
   %         \item Camera Geometry
